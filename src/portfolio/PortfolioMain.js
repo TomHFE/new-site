@@ -2,6 +2,7 @@ import Portfolio from "./Portfolio";
 import PortfolioSecond from "./PortfolioSecondary";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 
 const PortfolioMain = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -29,7 +30,9 @@ const PortfolioMain = () => {
       </Link>
       {screenWidth > 1390 ? (
         <div>
-          <Portfolio />
+          <MotionConfig reducedMotion="always">
+            <Portfolio />
+          </MotionConfig>
         </div>
       ) : (
         <div>

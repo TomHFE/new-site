@@ -1,4 +1,5 @@
 import "./App.css";
+import { MotionConfig } from "framer-motion";
 
 import Main from "./homepage/Main";
 import Menu from "./menu/Menu";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/portfolio" element={<PortfolioMain />} />
+
           <Route path="/*" element={<Main />} />
         </Routes>
       </Router>

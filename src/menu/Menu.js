@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import menuHoverAnimation from "./pngs/menuHover.png";
 import { Link } from "react-router-dom";
 import EmailLink from "../contact/email";
+import Exit from "../exit-animation/Exit";
+import ExitAnimationVariants from "../framer-variants/ExitAnimation";
 
 const Menu = () => {
   const [array, setArray] = useState([
@@ -31,18 +33,22 @@ const Menu = () => {
   ]);
   const [scroll, setScroll] = useState(0);
   const [menuHover, setMenuHover] = useState(0);
+  const [show, setShow] = useState(false);
   const rotationAmount = 1;
   const scrollValue = useDebounce(scroll, 15);
-  // const hoverValue = useDebounce(menuHover, 15);
 
-  // useEffect(() => {
-  //   const debouncedHandleMenuHover = useDebounce(handleMenuHover, 200);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      // Perform an action after the specified delay
+      handleShow();
+      console.log("Timeout completed!");
+    }, 950); // Delay of 3000 milliseconds (adjust as needed)
 
-  //   // Attach the debounced function to the event listeners
-  //   const handleHoverStart = () => debouncedHandleMenuHover(true);
-  //   const handleHoverEnd = () => debouncedHandleMenuHover(false);
-  // }, [menuHover]);
-
+    return () => {
+      // Clean up the timeout if the component unmounts or the effect changes
+      clearTimeout(timeout);
+    };
+  }, []);
   useEffect(() => {
     // debounce(() => {
     if (scrollValue > 0) {
@@ -67,6 +73,10 @@ const Menu = () => {
 
   const handleMenuHover = () => {
     setMenuHover(!menuHover);
+  };
+
+  const handleShow = () => {
+    setShow(true);
   };
 
   const numbers = {
@@ -135,86 +145,160 @@ const Menu = () => {
     end: { fontSize: "2rem", scale: 1 },
   };
 
-  console.log(EmailLink());
+  const intro = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 2 },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration: 2 },
+    },
+  };
+
+  const liVariants = {
+    up: { y: -100 },
+    down: { y: 100 },
+    visible: { y: 0 },
+  };
 
   return (
-    <body
-      className="menuBody"
-      onWheel={(e) => {
-        setScroll(e.deltaY);
-      }}
-    >
-      <div className="menuBody">
-        <ul className="menuBox">
-          <span
-            className="dot forward"
-            onMouseDown={() => {
-              setScroll(-1);
-            }}
-            onMouseUp={() => {
-              setScroll(0);
-            }}
-          ></span>
-          <li className="menu1">{[array[0].number, " ", array[0].name]}</li>
-          <li className="menu2">{[array[1].number, " ", array[1].name]}</li>
-          <motion.li
-            className="menu3"
-            onHoverStart={handleMenuHover}
-            onHoverEnd={handleMenuHover}
-          >
-            <Link
-              to={
-                array[2].name !== "CONTACT"
-                  ? `/${array[2].name.toLowerCase()}`
-                  : EmailLink()
-              }
-              className="linkStyling"
+    <AnimatePresence>
+      {show ? (
+        <motion.div
+          className="menuBody"
+          onWheel={(e) => {
+            setScroll(e.deltaY);
+          }}
+        >
+          <div className="menuBody">
+            <motion.ul
+              className="menuBox"
+              variants={intro}
+              initial="hidden"
+              animate={show && "visible"}
+              exit="exit"
+              key="menuUl"
             >
-              <motion.span
-                variants={numbers}
-                initial="start"
-                animate={menuHover ? "middle" : "end"}
-                exit="end"
-                transition={{ duration: 0.3 }}
+              <span
+                className="dot forward"
+                onMouseDown={() => {
+                  setScroll(-1);
+                }}
+                onMouseUp={() => {
+                  setScroll(0);
+                }}
+              ></span>
+              <motion.li
+                className="menu1"
+                variants={liVariants}
+                initial={liVariants.up}
+                animate={liVariants.visible}
+                transition={{ duration: 2 }}
+                key={array[0].number}
               >
-                {array[2].number}{" "}
-              </motion.span>{" "}
-            </Link>
-            <motion.img
-              className="menuAnimation"
-              src={menuHoverAnimation}
-              alt="menuHoverAnimation"
-              variants={menuHoverAnimations}
-              initial="start"
-              animate={menuHover ? "middle" : "end"}
-              exit="end"
-              transition={{ duration: 0.3 }}
-            />
-            <motion.span
-              variants={name}
-              initial="start"
-              animate={menuHover ? "middle" : "end"}
-              exit="end"
-              transition={{ duration: 0.3 }}
-            >
-              {array[2].name}
-            </motion.span>
-          </motion.li>
+                {[array[0].number, " ", array[0].name]}
+              </motion.li>
+              <motion.li
+                variants={liVariants}
+                initial={liVariants.down}
+                animate={liVariants.visible}
+                transition={{ duration: 2.5 }}
+                className="menu2"
+                key={array[1].number}
+              >
+                {[array[1].number, " ", array[1].name]}
+              </motion.li>
+              <motion.li
+                className="menu3"
+                onHoverStart={handleMenuHover}
+                onHoverEnd={handleMenuHover}
+                variants={liVariants}
+                initial={liVariants.up}
+                animate={liVariants.visible}
+                transition={{ duration: 3 }}
+                key={array[2].number}
+              >
+                <Link
+                  to={
+                    array[2].name !== "CONTACT"
+                      ? `/${array[2].name.toLowerCase()}`
+                      : EmailLink()
+                  }
+                  className="linkStyling"
+                >
+                  <motion.span
+                    variants={numbers}
+                    initial="start"
+                    animate={menuHover ? "middle" : "end"}
+                    exit="end"
+                    transition={{ duration: 0.3 }}
+                  >
+                    {array[2].number}{" "}
+                  </motion.span>{" "}
+                </Link>
+                <motion.img
+                  className="menuAnimation"
+                  src={menuHoverAnimation}
+                  alt="menuHoverAnimation"
+                  variants={menuHoverAnimations}
+                  initial="start"
+                  animate={menuHover ? "middle" : "end"}
+                  exit="end"
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  variants={name}
+                  initial="start"
+                  animate={menuHover ? "middle" : "end"}
+                  exit="end"
+                  transition={{ duration: 0.3 }}
+                >
+                  {array[2].name}
+                </motion.span>
+              </motion.li>
 
-          <li className="menu4">{[array[3].number, " ", array[3].name]}</li>
-          <li className="menu5">{[array[4].number, " ", array[4].name]}</li>
-          <span
-            className="dot back"
-            onMouseDown={() => {
-              setScroll(1);
-            }}
-            onMouseUp={() => {
-              setScroll(0);
-            }}
-          ></span>
-        </ul>
-      </div>
-    </body>
+              <motion.li
+                className="menu4"
+                variants={liVariants}
+                initial={liVariants.down}
+                animate={liVariants.visible}
+                transition={{ duration: 3.5 }}
+                key={array[3].number}
+              >
+                {[array[3].number, " ", array[3].name]}
+              </motion.li>
+              <motion.li
+                variants={liVariants}
+                initial={liVariants.up}
+                animate={liVariants.visible}
+                transition={{ duration: 4 }}
+                className="menu5"
+                key={array[4].number}
+              >
+                {[array[4].number, " ", array[4].name]}
+              </motion.li>
+              <span
+                className="dot back"
+                onMouseDown={() => {
+                  setScroll(1);
+                }}
+                onMouseUp={() => {
+                  setScroll(0);
+                }}
+              ></span>
+            </motion.ul>
+          </div>
+        </motion.div>
+      ) : (
+        <motion.div>
+          <Exit />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 export default Menu;

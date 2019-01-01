@@ -1,14 +1,10 @@
 import Spline from "@splinetool/react-spline";
 import React, { useEffect } from "react";
-import {
-  useAnimation,
-  motion,
-  AnimatePresence,
-} from "framer-motion";
+import { useAnimation, motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const PortfolioSecondMap = ({
-  el: { id, text, colour, number, title, name, info, video, spline, link },
+  el: { id, text, colour, number, name, info, link },
 }) => {
   const [ref, inView] = useInView();
 
@@ -98,4 +94,3 @@ const PortfolioSecondMap = ({
   );
 };
 export default PortfolioSecondMap;
-

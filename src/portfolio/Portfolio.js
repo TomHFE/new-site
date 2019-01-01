@@ -1,19 +1,61 @@
 import "./Portfolio.css";
-import { useState, useRef } from "react";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useAnimate,
+  useAnimationControls,
+} from "framer-motion";
 import portfolioSections from "./portfolioSections";
 import FromLeft from "../framer-variants/Left";
 import FromRight from "../framer-variants/Right";
+import { useInView } from "react-intersection-observer";
 
 const Portfolio = () => {
   const [id, setID] = useState(1);
+  // const [laggingId, setLaggingID] = useState([]);
+
+  const [animate, setAnimate] = useState(true);
+
+  // const [scope, animate] = useAnimate();
+
+  // const controls = useAnimationControls();
 
   const idRef = useRef(0);
 
+  // const laggingIdRef = useRef([]);
+
   const handleID = (id) => {
-    idRef.current = id;
-    setID(idRef.current);
+    setTimeout(() => {
+      idRef.current = id;
+      setID(idRef.current);
+    }, 200);
   };
+
+  // const handleLaggingID = (id) => {
+  //   // setLaggingID(...laggingId, id);
+  //   laggingIdRef.current = id;
+  // };
+
+  // useEffect(() => {
+  //   handleLaggingID(id);
+  // }, [id]);
+  useEffect(() => {
+    setTimeout(() => {
+      if (animate === 0) {
+        setAnimate(1);
+      }
+    }, 500);
+  }, [animate]);
+  // let animate
+
+  // if (isOpen) {
+  //   animate = shouldReduceMotion ? { opacity: 1 } : { x: 0 }
+  // } else {
+  //   animate = shouldReduceMotion
+  //     ? { opacity: 0 }
+  //     : { x: "-100%" }
+  // }
 
   const flexVariants = {
     start: {
@@ -37,8 +79,9 @@ const Portfolio = () => {
         exit="end"
         transition={{ duration: 0.3 }}
         id={styling}
-        onMouseDownCapture={() => {
+        onMouseUp={() => {
           handleID(position.id);
+          setAnimate(0);
         }}
       >
         {position.number}
@@ -48,7 +91,12 @@ const Portfolio = () => {
 
   return (
     <AnimatePresence>
-      <div className="centerPortfolio">
+      <div
+        className="centerPortfolio"
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      >
         <p id={`portfolioClick`}>
           <a
             // className="aTag"
@@ -77,18 +125,51 @@ const Portfolio = () => {
               <motion.h1
                 id={`portfolioTitleGrid${id}`}
                 className="portfolioTitle"
-                key={portfolioSections[id]}
+                key={idRef}
+                // variants={FromLeft}
+                // layout
+                // layoutId={portfolioSections[id].name}
+                initial={{ opacity: 0, transition: { duration: 0.1 } }}
+                animate={
+                  animate === 1
+                    ? { opacity: 1, transition: { duration: 0.4 } }
+                    : { opacity: 0, transition: { duration: 0.01 } }
+                }
+                // animate={controls}
+                // animate={
+                //   laggingIdRef !== idRef ? { opacity: 1 } : { opacity: 0 }
+                // }
+
+                transition={{
+                  ease: "linear",
+                  duration: 3,
+                }}
+
+                // initial="hidden"
+                // animate={controls}
               >
                 {portfolioSections[id].name.toUpperCase()}
               </motion.h1>
-              <h1 id={`portfolioNumberGrid${id}`} className="portfolioNumber">
+              <motion.h1
+                id={`portfolioNumberGrid${id}`}
+                className="portfolioNumber"
+                layout
+              >
                 {portfolioSections[id].number}
-              </h1>
-              <p id={`portfolioInfoGrid${id}`} className="portfolioInfo">
+              </motion.h1>
+              <motion.p
+                layout
+                id={`portfolioInfoGrid${id}`}
+                className="portfolioInfo"
+              >
                 {portfolioSections[id].info}
-              </p>
+              </motion.p>
 
-              <div className="videoContainer" id={`portfolioVideoGrid${id}`}>
+              <motion.div
+                layout
+                className="videoContainer"
+                id={`portfolioVideoGrid${id}`}
+              >
                 <video
                   className="portfolioVideo"
                   src={portfolioSections[id].video}
@@ -98,7 +179,7 @@ const Portfolio = () => {
                   muted
                   key={portfolioSections[id].id}
                 />
-              </div>
+              </motion.div>
             </div>
           )}
         </div>
