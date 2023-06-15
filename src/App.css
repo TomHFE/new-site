@@ -19,6 +19,12 @@ h2 {
 p {
   font-family: "Space Mono", monospace;
 }
+li {
+  font-family: "Yantramanav", sans-serif;
+  font-size: 3rem;
+  list-style: none;
+  color: rgb(240, 248, 255);
+}
 
 body {
   /* background-color: rgb(1, 21, 55); */
@@ -40,7 +46,9 @@ body {
 }
 #main {
   box-shadow: 0px 0px 15px 15px rgba(0, 0, 0, 0.677);
-  border-radius: 30px 190px 30px 30px;
+  /* border-radius: 30px 190px 30px 30px; */
+  border-radius: 100px;
+
   margin: auto;
   position: absolute;
   z-index: 1;
@@ -61,10 +69,14 @@ body {
 
 .mainBody {
   height: 85vh;
+  /* height: 100vh; */
+
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  /* width: 100vw; */
   width: 90vw;
+
   position: relative;
   margin-left: 4.5vw;
 }
