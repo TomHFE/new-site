@@ -23,8 +23,8 @@
 .menuBox {
   display: flex;
   flex-direction: row-reverse;
-  grid-column: 1/8;
-  grid-row: 1/7;
+  /* grid-column: 1/8;
+  grid-row: 1/7; */
   place-content: center;
   text-align: center;
   top: 0;
@@ -33,7 +33,10 @@
   bottom: 0;
   margin-top: 7vh;
   /* font-size: 8rem; */
-  /* margin-left: 50%; */
+  left: 50%;
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
 }
 .menu1 {
   margin-top: 2rem;
@@ -42,6 +45,7 @@
   margin: 0.5rem;
   writing-mode: vertical-rl;
   text-orientation: upright;
+  z-index: 1;
 }
 .menu2 {
   margin: 0.5rem;
@@ -51,6 +55,7 @@
   /* color: rgba(250, 235, 215, 0.283); */
   writing-mode: vertical-rl;
   text-orientation: upright;
+  z-index: 1;
 }
 .menu3 {
   margin: 0.5rem;
@@ -63,6 +68,11 @@
   border-right: 1rem; */
   writing-mode: vertical-rl;
   text-orientation: upright;
+  overflow: hidden;
+}
+.menu3:hover {
+  background-color: white;
+  transition-duration: 0.3ms;
 }
 .menu4 {
   margin: 0.5rem;
@@ -72,6 +82,7 @@
   writing-mode: vertical-rl;
   text-orientation: upright;
   /* color: rgba(250, 235, 215, 0.283); */
+  z-index: 1;
 }
 .menu5 {
   margin: 0.5rem;
@@ -81,6 +92,7 @@
   writing-mode: vertical-rl;
   text-orientation: upright;
   /* color: rgba(250, 235, 215, 0.071); */
+  z-index: 1;
 }
 /* .menu3:hover {
   background-color: rgb(0, 0, 0);
@@ -90,3 +102,52 @@
   transition: ease-in-out;
   transition-duration: 1s;
 } */
+.dot {
+  height: 10px;
+  width: 10px;
+  /* background-color: #bbb; */
+  border-radius: 50%;
+  display: inline-block;
+  border-color: aliceblue;
+  border-style: solid;
+  margin-top: 42vh;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  z-index: 1;
+}
+.forward {
+  margin-left: 5vw;
+}
+.back {
+  margin-right: 5vw;
+}
+.dot:hover {
+  background-color: aliceblue;
+}
+.menuAnimation {
+  /* position: center; */
+  display: block;
+  /* margin-right: auto;*/
+  position: absolute; /* or absolute */
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  scale: 2;
+
+  z-index: 0;
+}
+.menuOpen {
+  border-style: solid;
+  border-color: aliceblue;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  z-index: 2;
+  position: absolute;
+  margin: auto;
+  left: 30%;
+  right: 30%;
+  top: 30%;
+  bottom: 30%;
+}
