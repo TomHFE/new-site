@@ -1,0 +1,151 @@
+/* .bodyPortfolio {
+  background-color: aliceblue;
+  margin: 0;
+  margin-bottom: -2%;
+  margin-right: -1%;
+  padding: 0;
+} */
+
+.positionElements {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  margin: 0%;
+  padding: 0;
+  margin-top: -0.4%;
+  left: -1%;
+}
+
+.portfolioGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(12, calc(100% / 12));
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  grid-template-rows: repeat(12, calc(100% / 12));
+  pointer-events: none;
+}
+.portfolioTitle {
+  /* grid-row: 9/10;
+  grid-column: 3/11; */
+  font-size: 10rem;
+  color: aliceblue;
+
+  text-align: right;
+}
+.portfolioNumber {
+  font-size: 2rem;
+
+  color: aliceblue;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: start;
+  grid-row: 1;
+  grid-column: 1;
+}
+.portfolioInfo {
+  font-size: 10.5px;
+  /* grid-row: 9/12;
+  grid-column: 8/11; */
+  color: aliceblue;
+  margin-bottom: 3rem;
+  text-align: right;
+}
+#portfolioInfoGrid0 {
+  grid-row: 9/12;
+  grid-column: 9/12;
+  margin-right: 6%;
+}
+#portfolioTitleGrid0 {
+  grid-row: 9/11;
+  grid-column: 5/12;
+  font-size: 9rem;
+  margin-right: 2%;
+}
+#portfolioInfoGrid1 {
+  grid-row: 9/12;
+  grid-column: 7/12;
+}
+#portfolioTitleGrid1 {
+  grid-row: 10/12;
+  grid-column: 3/12;
+  font-size: 7rem;
+  /* margin-bottom: 8%; */
+}
+#portfolioInfoGrid2 {
+  grid-row: 8/11;
+  grid-column: 10/12;
+  margin-right: -3vw;
+}
+#portfolioTitleGrid2 {
+  grid-row: 8/11;
+  grid-column: 3/12;
+  margin-right: -4vw;
+  font-size: 6.5rem;
+}
+#portfolioInfoGrid3 {
+  grid-row: 9/12;
+  grid-column: 10/13;
+  margin-right: 2vw;
+}
+#portfolioTitleGrid3 {
+  grid-row: 9/10;
+  grid-column: 7/13;
+  margin-right: 2vw;
+  font-size: 8.85rem;
+}
+#portfolioInfoGrid4 {
+  grid-row: 9/11;
+  grid-column: 9/13;
+}
+#portfolioTitleGrid4 {
+  grid-row: 9/11;
+  grid-column: 5/13;
+  font-size: 8.9rem;
+}
+.flexNumbers {
+  display: flex;
+  padding: 0;
+  justify-content: content;
+  place-content: center;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+#flexBox1 {
+  background-color: blue;
+}
+#flexBox2 {
+  background-color: rgb(37, 37, 241);
+}
+#flexBox3 {
+  background-color: rgb(122, 122, 247);
+}
+#flexBox4 {
+  background-color: rgb(167, 167, 237);
+}
+#flexBox5 {
+  background-color: rgb(208, 208, 249);
+}
+#flexBox1,
+#flexBox2,
+#flexBox3,
+#flexBox4,
+#flexBox5 {
+  flex: 1; /* Add this line */
+  color: rgb(255, 255, 255);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: start;
+  font-size: 2rem;
+  min-height: 100vh;
+  /* overflow: hidden; */
+}

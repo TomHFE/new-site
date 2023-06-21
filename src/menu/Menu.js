@@ -1,40 +1,36 @@
 import "./Menu.css";
 import { useState, useEffect } from "react";
 import useDebounce from "../hooks/useDebounce";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import menuHoverAnimation from "./pngs/menu-hover.png";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [array, setArray] = useState([
     {
       name: "ABOUT",
       number: ".001",
-      info: "Click here to find out more about me",
     },
     {
       name: "HOMEPAGE",
       number: ".002",
-      info: "Click here to go home",
     },
     {
       name: "PORTFOLIO",
       number: ".003",
-      info: "Click here to have a look at my portfolio",
     },
     {
       name: "CONTACT",
       number: ".004",
-      info: "Click here for contact information",
     },
     {
       name: "CV",
       number: ".005",
-      info: "Click here for a copy of my cv",
     },
   ]);
   const [scroll, setScroll] = useState(0);
   const [menuHover, setMenuHover] = useState(0);
-  const [menuClick, setMenuClick] = useState(0);
+  // const [menuClick, setMenuClick] = useState(0);
   const rotationAmount = 1;
   const debouncedValue = useDebounce(scroll, 15);
 
@@ -60,9 +56,9 @@ const Menu = () => {
   const handleMenuHover = () => {
     setMenuHover(!menuHover);
   };
-  const handleMenuClick = () => {
-    setMenuClick(!menuClick);
-  };
+  // const handleMenuClick = () => {
+  //   setMenuClick(!menuClick);
+  // };
   const numbers = {
     start: {
       fontSize: "2rem",
@@ -72,6 +68,7 @@ const Menu = () => {
     },
 
     middle: {
+      marginTop: "5vh",
       fontSize: "3rem",
       background: "none",
       color: "rgb(0, 9, 22)",
@@ -163,12 +160,16 @@ const Menu = () => {
           ></span>
           <li className="menu1">{[array[0].number, " ", array[0].name]}</li>
           <li className="menu2">{[array[1].number, " ", array[1].name]}</li>
-          {!menuClick ? (
-            <motion.li
-              className="menu3"
-              onHoverStart={handleMenuHover}
-              onHoverEnd={handleMenuHover}
-              onClick={handleMenuClick}
+          {/* {!menuClick ? ( */}
+          <motion.li
+            className="menu3"
+            onHoverStart={handleMenuHover}
+            onHoverEnd={handleMenuHover}
+            // onClick={handleMenuClick}
+          >
+            <Link
+              to={`/${array[2].name.toLowerCase()}`}
+              className="linkStyling"
             >
               <motion.span
                 variants={numbers}
@@ -179,33 +180,28 @@ const Menu = () => {
               >
                 {array[2].number}{" "}
               </motion.span>{" "}
-              <motion.img
-                className="menuAnimation"
-                src={menuHoverAnimation}
-                alt="menuHoverAnimation"
-                variants={menuHoverAnimations}
-                initial="start"
-                animate={menuHover ? "middle" : "end"}
-                exit="end"
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                variants={name}
-                initial="start"
-                animate={menuHover ? "middle" : "end"}
-                exit="end"
-                transition={{ duration: 0.3 }}
-              >
-                {array[2].name}
-              </motion.span>
-            </motion.li>
-          ) : (
-            <div className="menuOpen">
-              <div>{array[2].name}</div>
-              <div>{array[2].number}</div>
-              <div>{array[2].info}</div>
-            </div>
-          )}
+            </Link>
+            <motion.img
+              className="menuAnimation"
+              src={menuHoverAnimation}
+              alt="menuHoverAnimation"
+              variants={menuHoverAnimations}
+              initial="start"
+              animate={menuHover ? "middle" : "end"}
+              exit="end"
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              variants={name}
+              initial="start"
+              animate={menuHover ? "middle" : "end"}
+              exit="end"
+              transition={{ duration: 0.3 }}
+            >
+              {array[2].name}
+            </motion.span>
+          </motion.li>
+
           <li className="menu4">{[array[3].number, " ", array[3].name]}</li>
           <li className="menu5">{[array[4].number, " ", array[4].name]}</li>
           <span
