@@ -1,10 +1,4 @@
-/* .bodyPortfolio {
-  background-color: aliceblue;
-  margin: 0;
-  margin-bottom: -2%;
-  margin-right: -1%;
-  padding: 0;
-} */
+/* full screen size */
 
 .positionElements {
   position: relative;
@@ -18,18 +12,19 @@
 
 .portfolioGrid {
   position: absolute;
-  top: 0;
-  left: 0;
+  /* top: 0;
+  left: 0; */
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(12, calc(100% / 12));
+  grid-template-columns: repeat(24, calc(100% / 24));
   width: 100vw;
   height: 100vh;
-  top: 50%;
-  left: 50%;
+  top: 55.5%;
+  left: 55.5%;
   transform: translate(-50%, -50%);
-  grid-template-rows: repeat(12, calc(100% / 12));
+  grid-template-rows: repeat(24, calc(100% / 24));
   pointer-events: none;
+  min-width: 0;
 }
 .portfolioTitle {
   /* grid-row: 9/10;
@@ -57,58 +52,284 @@
   margin-bottom: 3rem;
   text-align: right;
 }
+
+/* first grid */
+
 #portfolioInfoGrid0 {
-  grid-row: 9/12;
-  grid-column: 9/12;
-  margin-right: 6%;
+  display: flex;
+  grid-row: 16/24;
+  grid-column: 1/7;
+  text-align: left;
+  margin-left: 1vw;
+  font-size: 1vw;
 }
 #portfolioTitleGrid0 {
-  grid-row: 9/11;
-  grid-column: 5/12;
-  font-size: 9rem;
-  margin-right: 2%;
+  display: flex;
+  grid-row: 15;
+  grid-column: 1/20;
+  text-align: left;
+  margin-left: 0.5vw;
+  text-shadow: 5px 5px #558abb;
+
+  /* margin-left: 0.5vw; */
 }
+#portfolioClickGrid0 {
+  display: flex;
+  grid-row: 9;
+  grid-column: 1/6;
+  text-align: left;
+  margin-left: 1vw;
+  color: white;
+
+  /* margin: 2rem; */
+  /* font-size: 0.8vw; */
+}
+#portfolioNumberGrid0 {
+  grid-row: 1;
+  grid-column: 1;
+  writing-mode: horizontal-tb;
+  text-orientation: none;
+  font-size: 10vw;
+  justify-content: center;
+  color: white;
+  margin-left: 0.5vw;
+  text-shadow: 5px 5px #558abb;
+}
+/* second grid */
+
 #portfolioInfoGrid1 {
-  grid-row: 9/12;
-  grid-column: 7/12;
+  display: flex;
+  grid-row: 16/24;
+  grid-column: 2/8;
+  text-align: left;
+  /* margin: 2rem; */
+  font-size: 1vw;
+  color: rgb(22, 22, 22);
+  margin-left: 0.5vw;
+}
+#portfolioClickGrid1 {
+  display: flex;
+  grid-row: 9;
+  grid-column: 2/6;
+  text-align: left;
+  margin-left: 0.5vw;
+
+  /* margin: 2rem; */
+  /* font-size: 0.8vw; */
+  color: rgb(22, 22, 22);
 }
 #portfolioTitleGrid1 {
-  grid-row: 10/12;
-  grid-column: 3/12;
-  font-size: 7rem;
-  /* margin-bottom: 8%; */
+  display: flex;
+  grid-row: 20/24;
+  grid-column: 2/20;
+  font-size: 9vw;
+  color: rgb(22, 22, 22);
+  margin-top: -1vh;
+  place-content: left;
+  text-shadow: 5px 5px #558abb;
 }
+#portfolioVideoGrid1 {
+  /* margin-left: 21vw;
+  margin-top: 5vh; */
+  /* margin-top: -3vh; */
+  display: flex;
+  padding-right: 1vw;
+
+  grid-row: 2/16;
+  grid-column: 7/22;
+  margin: auto;
+  /* margin-right: 1vw; */
+  /* margin-top: 2rem; */
+  /* place-content: bottom; */
+
+  overflow: hidden;
+}
+#portfolioNumberGrid1 {
+  grid-row: 1;
+  grid-column: 2;
+  writing-mode: horizontal-tb;
+  text-orientation: none;
+  font-size: 10vw;
+  justify-content: center;
+  color: rgb(22, 22, 22);
+  text-shadow: 5px 5px #558abb;
+}
+
+/* third grid */
+
 #portfolioInfoGrid2 {
-  grid-row: 8/11;
-  grid-column: 10/12;
-  margin-right: -3vw;
+  display: flex;
+  grid-row: 19;
+  grid-column: 3/8;
+  text-align: left;
+  /* margin: 2rem; */
+  font-size: 1vw;
+  color: rgb(22, 22, 22);
+  margin-left: 0.5vw;
 }
 #portfolioTitleGrid2 {
-  grid-row: 8/11;
-  grid-column: 3/12;
-  margin-right: -4vw;
+  grid-row: 18;
+  grid-column: 1/23;
+  margin-right: 4vw;
   font-size: 6.5rem;
+  color: rgb(22, 22, 22);
+  text-shadow: 5px 5px #558abb;
 }
+
+#portfolioClickGrid2 {
+  display: flex;
+  grid-row: 9;
+  grid-column: 3/6;
+  text-align: left;
+  margin-left: 0.5vw;
+
+  /* margin: 2rem; */
+  /* font-size: 0.8vw; */
+  color: rgb(22, 22, 22);
+}
+#portfolioNumberGrid2 {
+  grid-row: 1;
+  grid-column: 3;
+  writing-mode: horizontal-tb;
+  text-orientation: none;
+  font-size: 10vw;
+  justify-content: center;
+  color: rgb(22, 22, 22);
+  text-shadow: 5px 5px #558abb;
+}
+#portfolioVideoGrid2 {
+  /* margin-left: 21vw;
+  margin-top: 5vh; */
+  /* margin-top: -3vh; */
+  display: flex;
+  padding-right: 2vw;
+  grid-row: 2/16;
+  grid-column: 8/23;
+  margin: auto;
+  /* margin-right: 1vw; */
+  /* margin-top: 2rem; */
+  /* place-content: bottom; */
+
+  overflow: hidden;
+}
+/* fourth grid */
+
 #portfolioInfoGrid3 {
-  grid-row: 9/12;
-  grid-column: 10/13;
-  margin-right: 2vw;
+  display: flex;
+  grid-row: 17;
+  grid-column: 4/9;
+  text-align: left;
+  /* margin: 2rem; */
+  font-size: 1vw;
+  color: rgb(22, 22, 22);
+  margin-left: 0.5vw;
 }
 #portfolioTitleGrid3 {
-  grid-row: 9/10;
-  grid-column: 7/13;
-  margin-right: 2vw;
-  font-size: 8.85rem;
+  display: flex;
+  grid-row: 18;
+  grid-column: 4/9;
+  /* padding-left: 1vw; */
+  /* margin-left: 0.5vw; */
+  text-shadow: 5px 5px #ffffff;
+
+  font-size: 6.6vw;
+  color: rgb(22, 22, 22);
 }
+#portfolioClickGrid3 {
+  display: flex;
+  grid-row: 9;
+  grid-column: 4/8;
+  text-align: left;
+  margin-left: 0.5vw;
+
+  /* margin: 2rem; */
+  /* font-size: 0.8vw; */
+  color: rgb(22, 22, 22);
+}
+#portfolioNumberGrid3 {
+  grid-row: 1;
+  grid-column: 4;
+  writing-mode: horizontal-tb;
+  text-orientation: none;
+  font-size: 10vw;
+  justify-content: center;
+  color: rgb(22, 22, 22);
+  text-shadow: 5px 5px #ffffff;
+}
+#portfolioVideoGrid3 {
+  /* margin-left: 21vw;
+  margin-top: 5vh; */
+  /* margin-top: -3vh; */
+  display: flex;
+  padding-right: 2vw;
+
+  grid-row: 2/16;
+  grid-column: 9/24;
+  margin: auto;
+  /* margin-right: 1vw; */
+  /* margin-top: 2rem; */
+  /* place-content: bottom; */
+
+  overflow: hidden;
+}
+
+/* fifth grid */
+
 #portfolioInfoGrid4 {
-  grid-row: 9/11;
-  grid-column: 9/13;
+  grid-row: 18;
+  grid-column: 5/10;
+  text-align: left;
+  margin-left: -0.5vw;
 }
 #portfolioTitleGrid4 {
-  grid-row: 9/11;
-  grid-column: 5/13;
+  grid-row: 16;
+  grid-column: 1/16;
   font-size: 8.9rem;
+  text-shadow: 5px 5px #000000;
 }
+#portfolioClickGrid4 {
+  display: flex;
+  grid-row: 8;
+  grid-column: 5/8;
+  text-align: left;
+  /* margin-left: 0.5vw; */
+
+  /* margin: 2rem; */
+  /* font-size: 0.8vw; */
+  /* color: rgb(22, 22, 22); */
+  color: white;
+}
+#portfolioNumberGrid4 {
+  grid-row: 2;
+  grid-column: 5;
+  writing-mode: horizontal-tb;
+  text-orientation: none;
+  font-size: 8vw;
+  margin-left: -0.5vw;
+  text-shadow: 5px 5px #000000;
+
+  justify-content: center;
+  /* color: rgb(22, 22, 22); */
+}
+#portfolioVideoGrid4 {
+  /* margin-left: 21vw;
+  margin-top: 5vh; */
+  /* margin-top: -3vh; */
+  display: flex;
+  padding-right: 2vw;
+
+  grid-row: 2/16;
+  grid-column: 10/25;
+  margin: auto;
+  margin-right: 1vw;
+  /* margin-top: 2rem; */
+  /* place-content: bottom; */
+
+  overflow: hidden;
+}
+
+/* flex boxes */
+
 .flexNumbers {
   display: flex;
   padding: 0;
@@ -121,19 +342,30 @@
   height: 100vh;
 }
 #flexBox1 {
-  background-color: blue;
+  background-color: #ac8181;
+  color: rgb(255, 255, 255);
 }
 #flexBox2 {
-  background-color: rgb(37, 37, 241);
+  background-color: #cfceca;
+  color: rgb(22, 22, 22);
 }
 #flexBox3 {
-  background-color: rgb(122, 122, 247);
+  background-color: #f8f8ff;
+  color: rgb(22, 22, 22);
+
+  /* border-radius: 20px 0 0 0; */
 }
 #flexBox4 {
-  background-color: rgb(167, 167, 237);
+  background-color: #c9a959;
+  color: rgb(255, 255, 255);
+
+  /* border-radius: 20px 0 0 0; */
 }
 #flexBox5 {
-  background-color: rgb(208, 208, 249);
+  background-color: #253d58;
+  color: rgb(255, 255, 255);
+
+  /* border-radius: 0 40px 40px 0; */
 }
 #flexBox1,
 #flexBox2,
@@ -141,11 +373,270 @@
 #flexBox4,
 #flexBox5 {
   flex: 1; /* Add this line */
-  color: rgb(255, 255, 255);
   writing-mode: vertical-rl;
   text-orientation: upright;
   text-align: start;
   font-size: 2rem;
   min-height: 100vh;
   /* overflow: hidden; */
+}
+.videoContainer {
+  /* height: 100vh;
+
+  width: auto; */
+  position: relative;
+}
+
+.portfolioVideo {
+  /* width: 100vw; */
+  max-width: 100%;
+  height: auto;
+  position: block;
+  object-fit: contain;
+  object-position: left;
+  /* z-index: -1000; */
+  /* object-fit: cover; */
+  /* position: relative; */
+}
+/* secondary screen size */
+.parentContainer {
+  width: 100vw;
+  height: 100vh;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  box-sizing: border-box;
+}
+
+.P2Grid0 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+
+  /* margin: auto; */
+  background-color: #ac8181;
+  /* top: 55.5%;
+  left: 55.5%; */
+  /* transform: translate(-50%, -50%); */
+}
+.P2Grid1 {
+  display: grid;
+  grid-template-columns: repeat(12, calc(100 / 12));
+  grid-template-rows: repeat(12, calc(100 / 12));
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #cfceca;
+}
+.P2Grid2 {
+  display: grid;
+  grid-template-columns: repeat(12, calc(100 / 12));
+  grid-template-rows: repeat(12, calc(100 / 12));
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #f8f8ff;
+}
+.P2Grid3 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #c9a959;
+}
+.P2Grid4 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #253d58;
+  gap: 10px;
+}
+/* .P2Grid0:nth-child(1) {
+  display: flex;
+  grid-row: 12;
+  grid-column: 12;
+} */
+
+/* P0 */
+
+.P2Number0 {
+  display: flex;
+  grid-row: 2;
+  grid-column: 1;
+  margin: 0px 0px 0px 20px;
+  font-size: 8vw;
+}
+.P2Title0 {
+  display: flex;
+  grid-row: 6/11;
+  grid-column: 8/13;
+  font-size: 8vw;
+  margin: 0px 0px 0px 20px;
+  text-align: right;
+  margin: 20px;
+}
+.P2Info0 {
+  display: flex;
+  grid-row: 12/13;
+  grid-column: 8/13;
+  text-align: right;
+  margin: 20px;
+}
+.P2Video0 {
+  display: flex;
+  grid-row: 12;
+  grid-column: 12;
+}
+
+/* P1 */
+
+.P2Number1 {
+  display: flex;
+  grid-row: 2;
+  grid-column: 2/3;
+  margin: 0px 0px 0px 20px;
+  font-size: 8vw;
+}
+.P2Title1 {
+  display: flex;
+  grid-row: 10/13;
+  grid-column: 9/13;
+  font-size: 8vw;
+  margin: 20px;
+}
+.P2Info1 {
+  display: flex;
+  grid-row: 12/13;
+  grid-column: 8/13;
+  text-align: right;
+  margin: 20px;
+}
+.P2Video1 {
+  display: flex;
+  grid-row: 1/3;
+  grid-column: 8/12;
+  max-width: 100%;
+  height: auto;
+  position: block;
+  object-fit: contain;
+  object-position: left;
+  margin: 20px;
+}
+/* P2 */
+
+.P2Number2 {
+  display: flex;
+  grid-row: 3;
+  grid-column: 2/3;
+  margin: 0px 0px 0px 20px;
+  font-size: 8vw;
+}
+.P2Title2 {
+  display: flex;
+  grid-row: 12/13;
+  grid-column: 9/13;
+  font-size: 8.4vw;
+  margin: 5px;
+  margin-bottom: -3vw;
+}
+.P2Info2 {
+  display: flex;
+  grid-row: 13;
+  grid-column: 12/13;
+  text-align: right;
+  margin: 20px;
+}
+.P2Video2 {
+  display: flex;
+  grid-row: 1/3;
+  grid-column: 8/12;
+  max-width: 100%;
+  height: auto;
+  position: block;
+  object-fit: contain;
+  object-position: left;
+  margin: 20px;
+}
+/* P3 */
+
+.P2Number3 {
+  display: flex;
+  grid-row: 3;
+  grid-column: 1;
+  margin: 40px;
+  font-size: 8vw;
+}
+.P2Title3 {
+  display: flex;
+  grid-row: 9/12;
+  grid-column: 9/13;
+  font-size: 8vw;
+  margin: 20px;
+}
+.P2Info3 {
+  display: flex;
+  grid-row: 12/13;
+  grid-column: 8/13;
+  text-align: right;
+  margin: 20px;
+}
+.P2Video3 {
+  display: flex;
+  grid-row: 1/3;
+  grid-column: 8/12;
+  max-width: 100%;
+  height: auto;
+  position: block;
+  object-fit: contain;
+  object-position: left;
+  margin: 20px;
+}
+/* P4 */
+
+.P2Number4 {
+  display: flex;
+  grid-row: 3;
+  grid-column: 1;
+  margin: 40px;
+  font-size: 8vw;
+}
+.P2Title4 {
+  display: flex;
+  grid-row: 8/12;
+  grid-column: 7/13;
+  font-size: 8.95vw;
+  margin: 20px;
+}
+.P2Info4 {
+  display: flex;
+  grid-row: 12/13;
+  grid-column: 8/13;
+  text-align: right;
+  margin: 20px;
+}
+.P2Video4 {
+  display: flex;
+  grid-row: 1/3;
+  grid-column: 8/12;
+  max-width: 100%;
+  height: auto;
+  position: block;
+  object-fit: contain;
+  object-position: left;
+  margin: 20px;
+}
+.P2Spline {
+  position: absolute;
+  grid-row: 1/3;
+  grid-column: 8/12;
+  z-index: 100;
 }

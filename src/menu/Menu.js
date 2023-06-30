@@ -30,35 +30,44 @@ const Menu = () => {
   ]);
   const [scroll, setScroll] = useState(0);
   const [menuHover, setMenuHover] = useState(0);
-  // const [menuClick, setMenuClick] = useState(0);
   const rotationAmount = 1;
-  const debouncedValue = useDebounce(scroll, 15);
+  const scrollValue = useDebounce(scroll, 15);
+  // const hoverValue = useDebounce(menuHover, 15);
+
+  // useEffect(() => {
+  //   const debouncedHandleMenuHover = useDebounce(handleMenuHover, 200);
+
+  //   // Attach the debounced function to the event listeners
+  //   const handleHoverStart = () => debouncedHandleMenuHover(true);
+  //   const handleHoverEnd = () => debouncedHandleMenuHover(false);
+  // }, [menuHover]);
 
   useEffect(() => {
     // debounce(() => {
-    if (debouncedValue > 0) {
+    if (scrollValue > 0) {
       // User scrolled down
 
       rotateArray(rotationAmount);
-    } else if (debouncedValue < 0) {
+    } else if (scrollValue < 0) {
       // User scrolled up
       rotateArray(-rotationAmount);
     } else {
       return;
     }
-  }, [debouncedValue]);
+  }, [scrollValue]);
 
   const rotateArray = (amount) => {
     const rotatedArray = [...array.slice(amount), ...array.slice(0, amount)];
     setArray(rotatedArray);
   };
+  // useEffect(() => {
+  //   setMenuHover(!hoverValue);
+  // }, [menuHover]);
 
   const handleMenuHover = () => {
     setMenuHover(!menuHover);
   };
-  // const handleMenuClick = () => {
-  //   setMenuClick(!menuClick);
-  // };
+
   const numbers = {
     start: {
       fontSize: "2rem",
@@ -88,10 +97,7 @@ const Menu = () => {
     start: {
       position: "absolute",
       display: "none",
-      // zIndex: 3,
-      // scale: 0.9,
-      // marginLeft: "auto",
-      // marginRight: "auto",
+
       y: "-100%",
       transition: {
         duration: 0.2, // Transition duration for other properties
@@ -100,11 +106,8 @@ const Menu = () => {
     },
 
     middle: {
-      // zIndex: 3,
-      // position: "center",
       display: "block",
-      // marginLeft: "auto",
-      // marginRight: "auto",
+
       y: "120%",
       transition: {
         duration: 0.2, // Transition duration for other properties
@@ -114,11 +117,6 @@ const Menu = () => {
 
     end: {
       display: "none",
-      // zIndex: 3,
-      // position: "absolute",
-      // scale: 0.9,
-      // marginLeft: "auto",
-      // marginRight: "auto",
 
       y: "-100%",
       transition: {
@@ -139,11 +137,7 @@ const Menu = () => {
   return (
     <body
       className="menuBody"
-      onKeyDown={(e) => {
-        console.log(e);
-      }}
       onWheel={(e) => {
-        console.log(e);
         setScroll(e.deltaY);
       }}
     >
@@ -152,7 +146,7 @@ const Menu = () => {
           <span
             className="dot forward"
             onMouseDown={() => {
-              setScroll(1);
+              setScroll(-1);
             }}
             onMouseUp={() => {
               setScroll(0);
@@ -160,12 +154,10 @@ const Menu = () => {
           ></span>
           <li className="menu1">{[array[0].number, " ", array[0].name]}</li>
           <li className="menu2">{[array[1].number, " ", array[1].name]}</li>
-          {/* {!menuClick ? ( */}
           <motion.li
             className="menu3"
             onHoverStart={handleMenuHover}
             onHoverEnd={handleMenuHover}
-            // onClick={handleMenuClick}
           >
             <Link
               to={`/${array[2].name.toLowerCase()}`}
@@ -207,7 +199,7 @@ const Menu = () => {
           <span
             className="dot back"
             onMouseDown={() => {
-              setScroll(-1);
+              setScroll(1);
             }}
             onMouseUp={() => {
               setScroll(0);
