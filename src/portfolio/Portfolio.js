@@ -1,7 +1,9 @@
 import "./Portfolio.css";
 import { useState, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import portfolioSections from "./portfolioSections";
+import FromLeft from "../framer-variants/Left";
+import FromRight from "../framer-variants/Right";
 
 const Portfolio = () => {
   const [id, setID] = useState(1);
@@ -44,8 +46,6 @@ const Portfolio = () => {
     );
   };
 
-  console.log(portfolioSections[id].link);
-
   return (
     <AnimatePresence>
       <div className="centerPortfolio">
@@ -74,9 +74,13 @@ const Portfolio = () => {
           </ul>
           {idRef && (
             <div className="portfolioGrid">
-              <h1 id={`portfolioTitleGrid${id}`} className="portfolioTitle">
+              <motion.h1
+                id={`portfolioTitleGrid${id}`}
+                className="portfolioTitle"
+                key={portfolioSections[id]}
+              >
                 {portfolioSections[id].name.toUpperCase()}
-              </h1>
+              </motion.h1>
               <h1 id={`portfolioNumberGrid${id}`} className="portfolioNumber">
                 {portfolioSections[id].number}
               </h1>

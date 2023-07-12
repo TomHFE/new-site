@@ -38,6 +38,7 @@
   font-size: 10rem;
   text-align: right;
   color: #ffffff;
+  /* overflow: hidden; */
 }
 .portfolioNumber {
   font-size: 2rem;
