@@ -2,8 +2,9 @@ import "./Menu.css";
 import { useState, useEffect } from "react";
 import useDebounce from "../hooks/useDebounce";
 import { AnimatePresence, motion } from "framer-motion";
-import menuHoverAnimation from "./pngs/menu-hover.png";
+import menuHoverAnimation from "./pngs/menuHover.png";
 import { Link } from "react-router-dom";
+import EmailLink from "../contact/email";
 
 const Menu = () => {
   const [array, setArray] = useState([
@@ -134,6 +135,8 @@ const Menu = () => {
     end: { fontSize: "2rem", scale: 1 },
   };
 
+  console.log(EmailLink());
+
   return (
     <body
       className="menuBody"
@@ -141,7 +144,7 @@ const Menu = () => {
         setScroll(e.deltaY);
       }}
     >
-      <div>
+      <div className="menuBody">
         <ul className="menuBox">
           <span
             className="dot forward"
@@ -160,7 +163,11 @@ const Menu = () => {
             onHoverEnd={handleMenuHover}
           >
             <Link
-              to={`/${array[2].name.toLowerCase()}`}
+              to={
+                array[2].name !== "CONTACT"
+                  ? `/${array[2].name.toLowerCase()}`
+                  : EmailLink()
+              }
               className="linkStyling"
             >
               <motion.span

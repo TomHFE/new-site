@@ -1,0 +1,275 @@
+#cvMenu {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.029);
+  font-family: "Yantramanav", sans-serif;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  color: rgba(255, 255, 255, 0.8);
+  left: 45vw;
+  padding: 0rem 1.5rem;
+
+  border: 0;
+  text-decoration: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  letter-spacing: 6px;
+  cursor: pointer;
+}
+#cvMenu:hover {
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.945);
+  transition: ease-in-out;
+  transition-duration: 1s;
+  color: #fff;
+}
+.mainClass h1 {
+  color: ivory;
+  font-size: 4rem;
+  /* font-family: "Libre Bodoni", serif; */
+}
+.mainClass h2 {
+  color: aliceblue;
+  /* font-family: "Space Mono", monospace; */
+}
+.mainClass h3 {
+  color: aliceblue;
+  /* font-family: "Aboreto", cursive; */
+}
+.mainClass p {
+  color: rgba(255, 253, 236, 0.956);
+  /* font-family: "Dongle", sans-serif; */
+  font-size: 2rem;
+}
+.mainClass a {
+  color: rgba(255, 253, 236, 0.956);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  text-decoration: none;
+}
+.mainClass a:hover {
+  color: rgba(255, 166, 0, 0.644);
+}
+.mainClass li {
+  color: rgba(255, 253, 236, 0.956);
+  font-family: "Dongle", sans-serif;
+  font-size: 2rem;
+}
+
+.mainClass hr {
+  margin: 5rem;
+}
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: min-content auto;
+  margin: 4.5rem;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: min-content auto;
+}
+
+.H1 {
+  display: flex;
+  place-content: left;
+  grid-column: 1/1;
+  grid-row: 1/1;
+}
+.H2 {
+  display: flex;
+  place-content: center;
+  text-align: left;
+  flex-direction: row;
+  grid-column: 1/3;
+  grid-row: 2/2;
+  font-size: 1.4rem;
+  margin-right: 18vw;
+}
+.H3 {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  grid-column: 5/5;
+  grid-row: 1/3;
+  font-size: 10px;
+}
+#finalWord {
+  display: flex;
+  justify-content: left;
+}
+.finalWord {
+}
+.finalWord:hover {
+  color: rgba(255, 166, 0, 0.644);
+}
+/* experience */
+.experienceContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: min-content auto;
+  grid-template-rows: min-content auto;
+  margin: 4rem;
+}
+.E5 {
+  display: grid;
+
+  grid-column: 1/3;
+  grid-row: 1/1;
+  place-items: center;
+  text-align: left;
+  border-bottom: 0.5rem;
+  border-style: double;
+  color: rgba(255, 166, 0, 0.644);
+
+  padding: 1rem;
+}
+.E1 {
+  /* display: flex;
+  place-items: right; */
+  grid-column: 3/4;
+  grid-row: 1/5;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  place-items: center;
+  text-align: center;
+}
+.E2 {
+  display: grid;
+
+  grid-column: 1/3;
+  grid-row: 2;
+  place-items: center;
+  text-align: right;
+  border-bottom: 0.5rem;
+  border-style: double;
+  padding: 1rem;
+}
+
+.E3 {
+  display: grid;
+
+  grid-column: 1/3;
+  grid-row: 3;
+  place-items: center;
+  text-align: left;
+  border-bottom: 0.5rem;
+  border-style: double;
+  padding: 1rem;
+  color: rgba(255, 166, 0, 0.644);
+}
+
+.E4 {
+  display: grid;
+  grid-column: 1/3;
+  grid-row: 4;
+  place-items: center;
+  text-align: right;
+  border-bottom: 0.5rem;
+  border-style: double;
+  padding: 1rem;
+}
+.skillsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: min-content auto;
+  grid-template-rows: min-content auto;
+  margin: 6rem;
+}
+
+.skillsContainer p:nth-child(odd) {
+  color: rgba(235, 222, 197, 0.644);
+}
+.S1 {
+  grid-column: 1/1;
+  grid-row: 1/9;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  place-items: center;
+  text-align: center;
+  color: rgba(255, 166, 0, 0.644);
+}
+
+.S2,
+.S3,
+.S4,
+.S5,
+.S6,
+.S7,
+.S8,
+.S9 {
+  place-items: right;
+  text-align: right;
+  color: aliceblue;
+  font-family: "Space Mono", monospace;
+  font-size: 1.3rem;
+  color: aliceblue;
+}
+/* education */
+.educationContianer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: min-content auto;
+  grid-template-rows: min-content auto;
+  margin: 8rem;
+}
+.Ed1 {
+  grid-column: 4;
+  grid-row: 2;
+
+  text-align: right;
+}
+.Ed2 {
+  grid-column: 1/2;
+  grid-row: 1/3;
+
+  text-align: left;
+}
+.Ed3 {
+  grid-column: 4/5;
+  grid-row: 1/3;
+  text-align: right;
+}
+.Ed2 > p {
+  color: rgba(255, 166, 0, 0.644);
+}
+.Ed3 > p {
+  color: rgba(235, 222, 197, 0.644);
+}
+/* work */
+.workContainer {
+  margin: 8rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: min-content auto;
+  grid-template-rows: min-content auto;
+}
+
+.workPreviousLayout {
+  margin: 8rem;
+  justify-content: right;
+  text-align: right;
+}
+.workPreviousLayout > h2 {
+  color: rgba(255, 166, 0, 0.644);
+  display: flex;
+  text-align: left;
+  justify-content: left;
+}
+.workPreviousLayout p:nth-child(-n + 2) {
+  display: flex;
+  text-align: left;
+  justify-content: left;
+}
+.P1 {
+  margin: 8rem;
+  display: flex;
+  justify-content: right;
+  grid-column: 5;
+  grid-row: 1;
+
+  text-align: right;
+}

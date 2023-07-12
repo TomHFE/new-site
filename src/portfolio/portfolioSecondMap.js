@@ -1,20 +1,24 @@
 import Spline from "@splinetool/react-spline";
 import React, { useEffect } from "react";
-import { useAnimation, motion, AnimatePresence } from "framer-motion";
+import {
+  useAnimation,
+  motion,
+  AnimatePresence,
+} from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const PortfolioSecondMap = ({
-  el: { id, text, colour, number, title, name, info, video, spline },
-  isVisible,
+  el: { id, text, colour, number, title, name, info, video, spline, link },
 }) => {
   const [ref, inView] = useInView();
 
-  console.log(inView);
-
   const secondVariants = {
-    visible: { opacity: 1, transition: { duration: 1 } },
+    visible: {
+      opacity: 1,
+      transition: { type: "spring", duration: 1.3 },
+    },
     hidden: { opacity: 0 },
-    exit: { opacity: 0, transition: { duration: 1 } },
+    exit: { opacity: 0, transition: { duration: 1.3 } },
   };
   const controls = useAnimation();
 
@@ -44,7 +48,18 @@ const PortfolioSecondMap = ({
         >
           {number}
         </motion.h1>
+        <motion.p
+          className={`P2Click${id}`}
+          variants={secondVariants}
+          initial="hidden"
+          animate={controls}
+        >
+          CLICK THE TITLE TO FIND OUT MORE
+        </motion.p>
 
+        <h1 className="P2Ref" ref={ref}>
+          hello
+        </h1>
         <motion.h1
           className={`P2Title${id}`}
           ref={ref}
@@ -52,8 +67,17 @@ const PortfolioSecondMap = ({
           initial="hidden"
           animate={controls}
         >
-          {name}
+          <a
+            className="aTag"
+            style={{ zIndex: 101, textDecoration: "none", color: "inherit" }}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {name}
+          </a>
         </motion.h1>
+
         <motion.p
           className={`P2Info${id}`}
           variants={secondVariants}
@@ -64,6 +88,7 @@ const PortfolioSecondMap = ({
         </motion.p>
         {inView && (
           <Spline
+            key={id}
             className="P2Spline"
             scene="https://prod.spline.design/SnGWczic6v3sxmsc/scene.splinecode"
           />
@@ -74,14 +99,3 @@ const PortfolioSecondMap = ({
 };
 export default PortfolioSecondMap;
 
-{
-  /* <video
-  className={`P2Video${id}`}
-  src={video}
-  controls={false}
-  autoPlay
-  loop
-  muted
-  key={id}
-/> */
-}

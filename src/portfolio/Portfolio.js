@@ -44,49 +44,61 @@ const Portfolio = () => {
     );
   };
 
+  console.log(portfolioSections[id].link);
+
   return (
     <AnimatePresence>
-      <body className="bodyPortfolio">
-        <div className="centerPortfolio">
-          <div className="positionElements">
-            <ul className="flexNumbers">
-              {flexBox(flexVariants, id, 0, "flexBox1", portfolioSections[0])}
-              {flexBox(flexVariants, id, 1, "flexBox2", portfolioSections[1])}
-              {flexBox(flexVariants, id, 2, "flexBox3", portfolioSections[2])}
-              {flexBox(flexVariants, id, 3, "flexBox4", portfolioSections[3])}
-              {flexBox(flexVariants, id, 4, "flexBox5", portfolioSections[4])}
-            </ul>
-            {idRef && (
-              <div className="portfolioGrid">
-                <h1 id={`portfolioTitleGrid${id}`} className="portfolioTitle">
-                  {portfolioSections[id].name.toUpperCase()}
-                </h1>
-                <h1 id={`portfolioNumberGrid${id}`} className="portfolioNumber">
-                  {portfolioSections[id].number}
-                </h1>
-                <p id={`portfolioClickGrid${id}`}>
-                  click the title to find out more
-                </p>
-                <p id={`portfolioInfoGrid${id}`} className="portfolioInfo">
-                  {portfolioSections[id].info}
-                </p>
+      <div className="centerPortfolio">
+        <p id={`portfolioClick`}>
+          <a
+            // className="aTag"
+            style={{
+              zIndex: 100001,
+              textDecoration: "none",
+              color: "inherit",
+            }}
+            href={portfolioSections[id].link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            click here to find out more
+          </a>
+        </p>
+        <div className="positionElements">
+          <ul className="flexNumbers">
+            {flexBox(flexVariants, id, 0, "flexBox1", portfolioSections[0])}
+            {flexBox(flexVariants, id, 1, "flexBox2", portfolioSections[1])}
+            {flexBox(flexVariants, id, 2, "flexBox3", portfolioSections[2])}
+            {flexBox(flexVariants, id, 3, "flexBox4", portfolioSections[3])}
+            {flexBox(flexVariants, id, 4, "flexBox5", portfolioSections[4])}
+          </ul>
+          {idRef && (
+            <div className="portfolioGrid">
+              <h1 id={`portfolioTitleGrid${id}`} className="portfolioTitle">
+                {portfolioSections[id].name.toUpperCase()}
+              </h1>
+              <h1 id={`portfolioNumberGrid${id}`} className="portfolioNumber">
+                {portfolioSections[id].number}
+              </h1>
+              <p id={`portfolioInfoGrid${id}`} className="portfolioInfo">
+                {portfolioSections[id].info}
+              </p>
 
-                <div className="videoContainer" id={`portfolioVideoGrid${id}`}>
-                  <video
-                    className="portfolioVideo"
-                    src={portfolioSections[id].video}
-                    controls={false}
-                    autoPlay
-                    loop
-                    muted
-                    key={portfolioSections[id].id}
-                  />
-                </div>
+              <div className="videoContainer" id={`portfolioVideoGrid${id}`}>
+                <video
+                  className="portfolioVideo"
+                  src={portfolioSections[id].video}
+                  controls={false}
+                  autoPlay
+                  loop
+                  muted
+                  key={portfolioSections[id].id}
+                />
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
-      </body>
+      </div>
     </AnimatePresence>
   );
 };

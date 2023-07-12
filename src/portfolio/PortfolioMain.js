@@ -1,6 +1,7 @@
 import Portfolio from "./Portfolio";
 import PortfolioSecond from "./PortfolioSecondary";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const PortfolioMain = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -21,6 +22,11 @@ const PortfolioMain = () => {
   }, []);
   return (
     <div>
+      <Link to="/menu">
+        <h1 className="P2Menu" style={{ textDecoration: "none" }}>
+          MENU
+        </h1>
+      </Link>
       {screenWidth > 1390 ? (
         <div>
           <Portfolio />
