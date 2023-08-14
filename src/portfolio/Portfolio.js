@@ -1,25 +1,13 @@
 import "./Portfolio.css";
 import { useState, useRef, useEffect } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useAnimate,
-  useAnimationControls,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import portfolioSections from "./portfolioSections";
-import FromLeft from "../framer-variants/Left";
-import FromRight from "../framer-variants/Right";
-import { useInView } from "react-intersection-observer";
 
 const Portfolio = () => {
+  const ref = useRef(null);
+
   const [id, setID] = useState(1);
-  // const [laggingId, setLaggingID] = useState([]);
-
-  const [animate, setAnimate] = useState(true);
-
-  // const [scope, animate] = useAnimate();
-
-  // const controls = useAnimationControls();
+  const [animate, setAnimate] = useState(1);
 
   const idRef = useRef(0);
 
@@ -32,14 +20,6 @@ const Portfolio = () => {
     }, 200);
   };
 
-  // const handleLaggingID = (id) => {
-  //   // setLaggingID(...laggingId, id);
-  //   laggingIdRef.current = id;
-  // };
-
-  // useEffect(() => {
-  //   handleLaggingID(id);
-  // }, [id]);
   useEffect(() => {
     setTimeout(() => {
       if (animate === 0) {
@@ -47,15 +27,23 @@ const Portfolio = () => {
       }
     }, 500);
   }, [animate]);
-  // let animate
 
-  // if (isOpen) {
-  //   animate = shouldReduceMotion ? { opacity: 1 } : { x: 0 }
-  // } else {
-  //   animate = shouldReduceMotion
-  //     ? { opacity: 0 }
-  //     : { x: "-100%" }
-  // }
+  const introVariants = {
+    hidden: {
+      x: -20,
+      opacity: 0,
+      transition: { duration: 0.02 },
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.7,
+        type: "easeInOut",
+      },
+    },
+  };
 
   const flexVariants = {
     start: {
@@ -70,6 +58,35 @@ const Portfolio = () => {
       flex: 1,
     },
   };
+
+  const maskVariants = {
+    hidden: {
+      opacity: 0,
+      // width: `${width}px`,
+      width: `260px`,
+      height: "120px",
+      transition: {
+        opacity: {
+          duration: 0.01,
+        },
+      },
+    },
+    visible: {
+      opacity: 1,
+
+      // height: "0%",
+      width: "0%",
+      transition: {
+        delay: 0.2,
+        duration: 1.3,
+        type: "easeInOut",
+        opacity: {
+          duration: 0.01,
+        },
+      },
+    },
+  };
+
   const flexBox = (flexVariants, ids, number, styling, position) => {
     return (
       <motion.li
@@ -99,7 +116,6 @@ const Portfolio = () => {
       >
         <p id={`portfolioClick`}>
           <a
-            // className="aTag"
             style={{
               zIndex: 100001,
               textDecoration: "none",
@@ -126,39 +142,41 @@ const Portfolio = () => {
                 id={`portfolioTitleGrid${id}`}
                 className="portfolioTitle"
                 key={idRef}
-                // variants={FromLeft}
-                // layout
-                // layoutId={portfolioSections[id].name}
-                initial={{ opacity: 0, transition: { duration: 0.1 } }}
-                animate={
-                  animate === 1
-                    ? { opacity: 1, transition: { duration: 0.4 } }
-                    : { opacity: 0, transition: { duration: 0.01 } }
-                }
-                // animate={controls}
-                // animate={
-                //   laggingIdRef !== idRef ? { opacity: 1 } : { opacity: 0 }
-                // }
-
-                transition={{
-                  ease: "linear",
-                  duration: 3,
-                }}
-
-                // initial="hidden"
-                // animate={controls}
+                variants={introVariants}
+                initial="hidden"
+                animate={animate === 1 ? "visible" : "hidden"}
               >
                 {portfolioSections[id].name.toUpperCase()}
               </motion.h1>
-              <motion.h1
-                id={`portfolioNumberGrid${id}`}
-                className="portfolioNumber"
-                layout
-              >
-                {portfolioSections[id].number}
-              </motion.h1>
+              <motion.span id={`portfolioNumberGrid${id}`}>
+                <motion.h1
+                  id={`portfolioNumberGrid${id}`}
+                  className="portfolioNumber"
+                  ref={ref}
+                  style={{ maxHeight: "100%" }}
+                  variants={introVariants}
+                  initial="hidden"
+                  animate={animate === 1 ? "visible" : "hidden"}
+                >
+                  {portfolioSections[id].number}
+                </motion.h1>
+                <motion.div
+                  variants={maskVariants}
+                  initial="hidden"
+                  animate={animate === 1 ? "visible" : "hidden"}
+                  className="mask"
+                  style={{
+                    marginTop: "-14vh",
+                    zIndex: "10000000",
+                    position: "absolute",
+                    overflow: "hidden",
+                  }}
+                ></motion.div>
+              </motion.span>
               <motion.p
-                layout
+                variants={introVariants}
+                initial="hidden"
+                animate={animate === 1 ? "visible" : "hidden"}
                 id={`portfolioInfoGrid${id}`}
                 className="portfolioInfo"
               >
@@ -166,7 +184,9 @@ const Portfolio = () => {
               </motion.p>
 
               <motion.div
-                layout
+                variants={introVariants}
+                initial="hidden"
+                animate={animate === 1 ? "visible" : "hidden"}
                 className="videoContainer"
                 id={`portfolioVideoGrid${id}`}
               >

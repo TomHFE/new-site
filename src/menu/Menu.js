@@ -95,13 +95,6 @@ const Menu = () => {
       fontWeight: "700",
       zIndex: 0,
     },
-
-    end: {
-      fontSize: "2rem",
-      background: "none",
-      color: "white",
-      zIndex: 0,
-    },
   };
 
   const menuHoverAnimations = {
@@ -138,11 +131,9 @@ const Menu = () => {
   };
 
   const name = {
-    start: { fontSize: "2rem", scale: 1 },
+    start: { fontSize: "2rem" },
 
-    middle: { fontSize: "0rem", scale: 0 },
-
-    end: { fontSize: "2rem", scale: 1 },
+    middle: { fontSize: "0rem" },
   };
 
   const intro = {
@@ -233,8 +224,7 @@ const Menu = () => {
                   <motion.span
                     variants={numbers}
                     initial="start"
-                    animate={menuHover ? "middle" : "end"}
-                    exit="end"
+                    animate={menuHover ? "middle" : "start"}
                     transition={{ duration: 0.3 }}
                   >
                     {array[2].number}{" "}
@@ -253,8 +243,7 @@ const Menu = () => {
                 <motion.span
                   variants={name}
                   initial="start"
-                  animate={menuHover ? "middle" : "end"}
-                  exit="end"
+                  animate={menuHover ? "middle" : "start"}
                   transition={{ duration: 0.3 }}
                 >
                   {array[2].name}

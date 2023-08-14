@@ -2,6 +2,7 @@ import "./About.css";
 import aboutPhoto from "./pngs/aboutPhoto.jpg";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Suspense } from "react";
 
 const About = () => {
   const Variants = {
@@ -31,7 +32,7 @@ const About = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 1.5 },
+      transition: { delay: 1, duration: 2.5 },
     },
   };
 
@@ -132,15 +133,16 @@ const About = () => {
               or alternatively checkout my Github for better insight into my
               coding journey
             </motion.p>
-
-            <motion.img
-              className="aboutPhoto"
-              src={aboutPhoto}
-              alt="aboutPhoto"
-              variants={container}
-              initial="hidden"
-              animate="visible"
-            />
+            <Suspense fallback=<div>"loading..."</div>>
+              <motion.img
+                className="aboutPhoto"
+                src={aboutPhoto}
+                alt="aboutPhoto"
+                variants={container}
+                initial="hidden"
+                animate="visible"
+              />
+            </Suspense>
             <div className="aboutSocials">
               <a
                 href="https://www.linkedin.com/in/thomas-logan-england-256b57193/"

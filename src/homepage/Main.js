@@ -5,24 +5,14 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import React, { lazy } from "react";
 import FromLeft from "../framer-variants/Left";
+
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const Main = () => {
-  const ref = useRef(null);
-
-  const [height, setHeight] = useState(0);
-  const [width, setWidth] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      handleHeight(ref);
-      handleWidth(ref);
-    }, 2000);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+  const name = "TOM ENGLAND";
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       handleLoaded();
@@ -32,23 +22,31 @@ const Main = () => {
     };
   }, []);
 
-  const handleHeight = (ref) => {
-    setHeight(ref.current.clientHeight);
-  };
-  const handleWidth = (ref) => {
-    setWidth(ref.current.clientWidth);
-  };
   const handleLoaded = () => {
     setLoaded(true);
   };
 
-  const maskVariants = {
-    hidden: {
-      width: `${width}px`,
-    },
+  const sentence = {
+    hidden: { opacity: 1 },
     visible: {
-      width: "0%",
-      transition: { duration: 2, type: "easeInOut" },
+      opacity: 1,
+
+      transition: {
+        delay: 0.5,
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const letter = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "linear",
+        duration: 1,
+      },
     },
   };
 
@@ -67,25 +65,22 @@ const Main = () => {
           />
           <motion.div className="mainTitle">
             <motion.h1
-              // onLoad={handleHeight}
-              ref={ref}
-              style={{ maxHeight: "100%" }}
-            >
-              TOM ENGLAND
-            </motion.h1>
-            <motion.div
-              variants={maskVariants}
+              variants={sentence}
               initial="hidden"
               animate={loaded ? "visible" : "hidden"}
-              className="mask"
-              style={{
-                width: `${width}px`,
-                height: `${height}px`,
-                zIndex: "5",
-                position: "absolute",
-                overflow: "hidden",
-              }}
-            ></motion.div>
+            >
+              {name.split("").map((char, index) => {
+                return (
+                  <motion.span
+                    style={{ display: "inline-block" }}
+                    key={char + "-" + index}
+                    variants={letter}
+                  >
+                    {char}
+                  </motion.span>
+                );
+              })}{" "}
+            </motion.h1>
           </motion.div>
           <motion.h2
             variants={FromLeft}
