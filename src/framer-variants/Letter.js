@@ -1,9 +1,13 @@
 const Letter = {
-  hidden: { opacity: 0, y: -50, x: -50 },
+  // individual letter easing in animation
+  hidden: { opacity: 0, x: 20 },
   visible: {
     opacity: 1,
-    y: 0,
     x: 0,
+    transition: {
+      type: "linear",
+      duration: 1,
+    },
   },
 };
 export default Letter;

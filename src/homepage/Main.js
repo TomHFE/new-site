@@ -1,18 +1,20 @@
-// import Spline from "@splinetool/react-spline";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import React, { lazy } from "react";
 import FromLeft from "../framer-variants/Left";
+import Letter from "../framer-variants/Letter";
+import Sentence from "../framer-variants/Sentence";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const Main = () => {
+  // set loaded hook
   const [loaded, setLoaded] = useState(false);
-
+  // name vairable for animation
   const name = "TOM ENGLAND";
-
+  // timeout finction for when loaded
   useEffect(() => {
     const timeout = setTimeout(() => {
       handleLoaded();
@@ -21,60 +23,38 @@ const Main = () => {
       clearTimeout(timeout);
     };
   }, []);
-
+  // loading function
   const handleLoaded = () => {
     setLoaded(true);
   };
 
-  const sentence = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-
-      transition: {
-        delay: 0.5,
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const letter = {
-    hidden: { opacity: 0, x: 20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "linear",
-        duration: 1,
-      },
-    },
-  };
-
-  // "A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received"
-
   return (
     <div>
+      {/* loading component */}
       <Loading key="loading" />
+      {/* homapage container  */}
       <div className="mainBorder">
         <div className="mainBody">
+          {/* 3d animation */}
           <Spline
             id="main"
             scene="https://prod.spline.design/9oEZU4K8ZLhSfF2h/scene.splinecode"
-
-            // add this as an aync await once loaded use usestate to add it in until that happens have a usestate for loading which renders another file until false
           />
+          {/* text body */}
           <motion.div className="mainTitle">
+            {/* name and corresponding animation */}
             <motion.h1
-              variants={sentence}
+              variants={Sentence}
               initial="hidden"
               animate={loaded ? "visible" : "hidden"}
             >
+              {/* letter animation */}
               {name.split("").map((char, index) => {
                 return (
                   <motion.span
                     style={{ display: "inline-block" }}
                     key={char + "-" + index}
-                    variants={letter}
+                    variants={Letter}
                   >
                     {char}
                   </motion.span>
@@ -82,6 +62,7 @@ const Main = () => {
               })}{" "}
             </motion.h1>
           </motion.div>
+          {/* sub heading */}
           <motion.h2
             variants={FromLeft}
             initial="hidden"
@@ -91,6 +72,7 @@ const Main = () => {
             {" "}
             Web Developer
           </motion.h2>
+          {/* homepage tag line */}
           <motion.p
             variants={FromLeft}
             initial="hidden"
@@ -100,7 +82,7 @@ const Main = () => {
             Looking for a position in front end development and software
             engineering
           </motion.p>
-          {/* use variants to change background from white to clear and change font from see through to white then work out correct transiition for desired effect */}
+          {/* menu button */}
           <Link className="menuSign" to="/menu">
             <h1>MENU</h1>
           </Link>

@@ -1,4 +1,5 @@
 const ExitAnimationVariants = {
+  // varitants for exit animation on menu page
   hidden: {
     y: "100vh",
     opacity: 1,

@@ -1,6 +1,5 @@
 import "./Menu.css";
 import { useState, useEffect } from "react";
-// import useDebounce from "../hooks/useDebounce";
 import { AnimatePresence, motion } from "framer-motion";
 import menuHoverAnimation from "./pngs/menuHover.png";
 import { Link } from "react-router-dom";
@@ -48,8 +47,6 @@ const Menu = () => {
   // roatation variable
   const rotationAmount = 1;
 
-  // const hoverValue = useDebounce(menuHover, 20);
-
   // custom block scroll hook
 
   const [blockScroll, allowScroll] = useScrollBlock();
@@ -89,8 +86,24 @@ const Menu = () => {
     const rotatedArray = [...array.slice(amount), ...array.slice(0, amount)];
     setArray(rotatedArray);
   };
-  const handleMenuHover = () => {
-    setMenuHover(!menuHover);
+
+  // menu hover in function
+
+  const handleMenuIn = () => {
+    setMenuHover(true);
+  };
+
+  // menu hover out function
+
+  const handleMenuOut = () => {
+    const timeoutMenu = setTimeout(() => {
+      setMenuHover(false);
+    }, 80);
+
+    return () => {
+      // Clean up the timeout if the component unmounts or the effect changes
+      clearTimeout(timeoutMenu);
+    };
   };
 
   // intial animation and dom rendering function
@@ -125,8 +138,8 @@ const Menu = () => {
     start: {
       position: "absolute",
       display: "none",
-
-      y: "-100%",
+      scale: 0.5,
+      y: "-110%",
       transition: {
         duration: 0.2, // Transition duration for other properties
         y: { duration: 0.5 }, // Transition duration for the 'y' property
@@ -135,8 +148,9 @@ const Menu = () => {
 
     middle: {
       display: "block",
+      scale: 0.5,
 
-      y: "120%",
+      y: "60%",
       transition: {
         duration: 0.2, // Transition duration for other properties
         y: { duration: 0.4 }, // Transition duration for the 'y' property
@@ -242,8 +256,8 @@ const Menu = () => {
 
               <motion.li
                 className="menu3"
-                onHoverStart={handleMenuHover}
-                onHoverEnd={handleMenuHover}
+                onHoverStart={handleMenuIn}
+                onHoverEnd={handleMenuOut}
                 variants={liVariants}
                 initial={liVariants.up}
                 animate={liVariants.visible}
@@ -273,6 +287,7 @@ const Menu = () => {
                   </motion.span>{" "}
                 </Link>
                 {/* slider animation */}
+
                 <motion.img
                   className="menuAnimation"
                   src={menuHoverAnimation}

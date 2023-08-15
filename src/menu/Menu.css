@@ -90,12 +90,13 @@
 
 .menuAnimation {
   display: block;
-  position: absolute; 
+  position: fixed;
   top: 50%;
-  left: 48%;
+  left: 50%;
+  right: 57%;
   overflow: hidden;
-  scale: 1;
   z-index: 0;
+  margin-left: -2.5rem;
 }
 
 /* menu open styling */

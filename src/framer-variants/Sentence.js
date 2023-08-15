@@ -1,10 +1,12 @@
 const Sentence = {
-  hidden: { opacity: 0 },
+  // sentence animation to be used with letter animation as parent container
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
+
     transition: {
-      delay: 1,
-      staggerChildren: 0.4,
+      delay: 0.5,
+      staggerChildren: 0.08,
     },
   },
 };

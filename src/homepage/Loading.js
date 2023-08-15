@@ -2,8 +2,9 @@ import { CircleLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 
 const Loading = () => {
+  // loading hook
   const [load, setLoad] = useState(false);
-
+  // timer for switching loading hook
   useEffect(() => {
     const timeout = setTimeout(() => {
       handleLoad();
@@ -12,13 +13,13 @@ const Loading = () => {
       clearTimeout(timeout);
     };
   }, []);
-
+  // load hook function
   const handleLoad = () => {
     setLoad(true);
-    console.log(load);
   };
 
   return (
+    // styling for load hook
     <div style={{ height: "100%", margin: "0", padding: "0" }}>
       <div
         style={{
@@ -32,9 +33,11 @@ const Loading = () => {
           position: "absolute",
           top: "0",
           left: "0",
+          // display dependent on load hook
           display: load ? "none" : "flex",
         }}
       >
+        {/* circle loader */}
         <CircleLoader color="#868686" size={70} />
       </div>
     </div>

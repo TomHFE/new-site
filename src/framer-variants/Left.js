@@ -1,4 +1,5 @@
 const FromLeft = {
+  // ease in from left animation variants
   hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
