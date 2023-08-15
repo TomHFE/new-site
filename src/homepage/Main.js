@@ -56,7 +56,7 @@ const Main = () => {
                     key={char + "-" + index}
                     variants={Letter}
                   >
-                    {char === " " ? "&nbsp;" : char}
+                    {char === " " ? "\u00A0" : char}
                   </motion.span>
                 );
               })}{" "}
