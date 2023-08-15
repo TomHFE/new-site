@@ -169,7 +169,7 @@ const About = () => {
             <div className="aboutSocials">
               {/* linkedIn tag */}
               <a
-                href="https://www.linkedin.com/in/thomas-logan-england-256b57193/"
+                href="www.linkedin.com/in/tom-england-webdev"
                 target="_blank"
                 rel="noopener noreferrer"
               >
