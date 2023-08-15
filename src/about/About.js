@@ -38,7 +38,7 @@ const About = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { delay: 1.5, duration: 2.5 },
+      transition: { delay: 2, duration: 2.5 },
     },
   };
 
