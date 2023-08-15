@@ -4,22 +4,22 @@ import { AnimatePresence, motion } from "framer-motion";
 import portfolioSections from "./portfolioSections";
 
 const Portfolio = () => {
+  // screen change ref
   const ref = useRef(null);
-
+  // id hook
   const [id, setID] = useState(1);
+  // animate hook
   const [animate, setAnimate] = useState(1);
-
+  // id ref
   const idRef = useRef(0);
-
-  // const laggingIdRef = useRef([]);
-
+  // handle id change function
   const handleID = (id) => {
     setTimeout(() => {
       idRef.current = id;
       setID(idRef.current);
     }, 200);
   };
-
+  // animation ref useeffect
   useEffect(() => {
     setTimeout(() => {
       if (animate === 0) {
@@ -27,7 +27,7 @@ const Portfolio = () => {
       }
     }, 500);
   }, [animate]);
-
+  // intro variants
   const introVariants = {
     hidden: {
       x: -20,
@@ -44,7 +44,7 @@ const Portfolio = () => {
       },
     },
   };
-
+  // flex variant sizing
   const flexVariants = {
     start: {
       flex: 1,
@@ -58,11 +58,10 @@ const Portfolio = () => {
       flex: 1,
     },
   };
-
+  // mask variants
   const maskVariants = {
     hidden: {
       opacity: 0,
-      // width: `${width}px`,
       width: `260px`,
       height: "120px",
       transition: {
@@ -73,8 +72,6 @@ const Portfolio = () => {
     },
     visible: {
       opacity: 1,
-
-      // height: "0%",
       width: "0%",
       transition: {
         delay: 0.2,
@@ -86,9 +83,10 @@ const Portfolio = () => {
       },
     },
   };
-
+  // flex box render function
   const flexBox = (flexVariants, ids, number, styling, position) => {
     return (
+      // flex boxes
       <motion.li
         variants={flexVariants}
         initial="start"
@@ -96,6 +94,7 @@ const Portfolio = () => {
         exit="end"
         transition={{ duration: 0.3 }}
         id={styling}
+        // id change event
         onMouseUp={() => {
           handleID(position.id);
           setAnimate(0);
@@ -108,12 +107,14 @@ const Portfolio = () => {
 
   return (
     <AnimatePresence>
+      {/* portfolio body */}
       <div
         className="centerPortfolio"
         onClick={(e) => {
           e.preventDefault();
         }}
       >
+        {/* link to github */}
         <p id={`portfolioClick`}>
           <a
             style={{
@@ -128,6 +129,7 @@ const Portfolio = () => {
             click here to find out more
           </a>
         </p>
+        {/* flex boxes */}
         <div className="positionElements">
           <ul className="flexNumbers">
             {flexBox(flexVariants, id, 0, "flexBox1", portfolioSections[0])}
@@ -136,8 +138,10 @@ const Portfolio = () => {
             {flexBox(flexVariants, id, 3, "flexBox4", portfolioSections[3])}
             {flexBox(flexVariants, id, 4, "flexBox5", portfolioSections[4])}
           </ul>
+          {/* id ref conditional render */}
           {idRef && (
             <div className="portfolioGrid">
+              {/* name */}
               <motion.h1
                 id={`portfolioTitleGrid${id}`}
                 className="portfolioTitle"
@@ -148,6 +152,7 @@ const Portfolio = () => {
               >
                 {portfolioSections[id].name.toUpperCase()}
               </motion.h1>
+              {/* number */}
               <motion.span id={`portfolioNumberGrid${id}`}>
                 <motion.h1
                   id={`portfolioNumberGrid${id}`}
@@ -160,6 +165,7 @@ const Portfolio = () => {
                 >
                   {portfolioSections[id].number}
                 </motion.h1>
+                {/* mask for number */}
                 <motion.div
                   variants={maskVariants}
                   initial="hidden"
@@ -173,6 +179,7 @@ const Portfolio = () => {
                   }}
                 ></motion.div>
               </motion.span>
+              {/* info section */}
               <motion.p
                 variants={introVariants}
                 initial="hidden"
@@ -182,7 +189,7 @@ const Portfolio = () => {
               >
                 {portfolioSections[id].info}
               </motion.p>
-
+              {/* video */}
               <motion.div
                 variants={introVariants}
                 initial="hidden"

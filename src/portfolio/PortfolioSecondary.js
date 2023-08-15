@@ -2,6 +2,7 @@ import PortfolioSections from "./portfolioSections";
 import PortfolioSecondMap from "./portfolioSecondMap";
 
 const PortfolioSecond = () => {
+  // mapping portfolio secondary component 
   return (
     <div>
       {PortfolioSections.map((props) => {

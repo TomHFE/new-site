@@ -6,8 +6,9 @@ import { useInView } from "react-intersection-observer";
 const PortfolioSecondMap = ({
   el: { id, text, colour, number, name, info, link },
 }) => {
+  // inview hook
   const [ref, inView] = useInView();
-
+  // variants for secondary portfolio
   const secondVariants = {
     visible: {
       opacity: 1,
@@ -16,8 +17,9 @@ const PortfolioSecondMap = ({
     hidden: { opacity: 0 },
     exit: { opacity: 0, transition: { duration: 1.3 } },
   };
+  // animation controls
   const controls = useAnimation();
-
+  // check for inview use effect hook
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -28,6 +30,7 @@ const PortfolioSecondMap = ({
 
   return (
     <AnimatePresence>
+      {/* portoflio secondary grid */}
       <motion.div
         key={id}
         className={`P2Grid${id}`}
@@ -36,6 +39,7 @@ const PortfolioSecondMap = ({
           backgroundColor: colour,
         }}
       >
+        {/* number */}
         <motion.h1
           className={`P2Number${id}`}
           variants={secondVariants}
@@ -44,6 +48,7 @@ const PortfolioSecondMap = ({
         >
           {number}
         </motion.h1>
+        {/* portoflio click title paragraph */}
         <motion.p
           className={`P2Click${id}`}
           variants={secondVariants}
@@ -52,10 +57,11 @@ const PortfolioSecondMap = ({
         >
           CLICK THE TITLE TO FIND OUT MORE
         </motion.p>
-
+        {/* ref */}
         <h1 className="P2Ref" ref={ref}>
           hello
         </h1>
+        {/* title */}
         <motion.h1
           className={`P2Title${id}`}
           ref={ref}
@@ -73,7 +79,7 @@ const PortfolioSecondMap = ({
             {name}
           </a>
         </motion.h1>
-
+        {/* info */}
         <motion.p
           className={`P2Info${id}`}
           variants={secondVariants}
@@ -82,6 +88,7 @@ const PortfolioSecondMap = ({
         >
           {info}
         </motion.p>
+        {/* spline component */}
         {inView && (
           <Spline
             key={id}

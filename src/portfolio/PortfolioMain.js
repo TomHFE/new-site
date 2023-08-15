@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 
 const PortfolioMain = () => {
+  // screen width conditional render hook
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+  // use effect for screen size change
   useEffect(() => {
-    // Update the screenWidth state whenever the window is resized
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
-      console.log(screenWidth);
     };
 
     window.addEventListener("resize", handleResize);
@@ -21,13 +21,16 @@ const PortfolioMain = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <div>
+      {/* menu */}
       <Link to="/menu">
         <h1 className="P2Menu" style={{ textDecoration: "none" }}>
           MENU
         </h1>
       </Link>
+      {/* portfolio full screen and not full screen conditional render */}
       {screenWidth > 1390 ? (
         <div>
           <MotionConfig reducedMotion="always">

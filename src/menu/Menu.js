@@ -120,6 +120,7 @@ const Menu = () => {
       background: "none",
       color: "white",
       zIndex: 0,
+      fontWeight: "400",
     },
 
     middle: {

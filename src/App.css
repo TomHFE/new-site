@@ -10,34 +10,43 @@
 font-family: 'Chakra Petch', sans-serif;
 font-family: 'Rubik Mono One', sans-serif;
 font-family: 'Space Mono', monospace; */
+
+/* anchor styling */
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
+/* main heading styling */
+
 h1 {
-  /* font-family: "Zen Dots"; */
   font-family: "Yantramanav", sans-serif;
 }
+/* sub heading styling */
 h2 {
   font-family: "Chakra Petch", sans-serif;
 }
+/* paragraph styling */
 p {
-  /* font-family: "Space Mono", monospace; */
   font-family: "Bebas Neue", sans-serif;
 }
+/* list styling */
 li {
   font-family: "Yantramanav", sans-serif;
   font-size: 3rem;
   list-style: none;
   color: rgb(240, 248, 255);
 }
-
+/* body styling */
 body {
   background-color: rgba(1, 6, 16, 0.92);
 }
+/* main border */
 .mainBorder {
   margin: 8vh 0vw 8vh 0vw;
 }
+/* main body */
 #main {
   border-radius: 100px;
 
@@ -50,19 +59,17 @@ body {
   border-style: solid;
   border-width: 1px;
 }
-
+/* main body styling */
 .mainBody {
   height: 85vh;
-
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(6, 1fr);
   width: 90vw;
-
   position: relative;
   margin-left: 4.5vw;
 }
-
+/* main title styling */
 .mainTitle {
   z-index: 2;
   display: flex;
@@ -77,12 +84,12 @@ body {
   margin-left: auto;
   padding-top: 4rem;
 }
+/* mask stying */
 .mask {
-  /* background-color: #141922; */
   background-color: white;
-
   max-height: 100%;
 }
+/* main subheading styling */
 .mainSubHeading {
   z-index: 2;
   color: rgba(240, 248, 255, 0.75);
@@ -92,7 +99,7 @@ body {
   font-size: 2rem;
   margin-left: auto;
 }
-
+/* main paragraph styling */
 .mainParagraph {
   z-index: 2;
   color: rgba(240, 248, 255, 0.5);
@@ -104,6 +111,7 @@ body {
   margin-left: auto;
   text-align: right;
 }
+/* horizontal line styling */
 .mainHorizontalLine {
   z-index: 2;
   width: 100%;
@@ -115,6 +123,7 @@ body {
   grid-row: 4;
   grid-column: 1/3;
 }
+/* main second line styling */
 .mainSecondLine {
   z-index: 2;
   width: 100%;
@@ -128,7 +137,7 @@ body {
   align-items: left;
   margin-right: 10vw;
 }
-
+/* menu styling */
 .menuBar {
   position: absolute;
   z-index: 2;
@@ -142,16 +151,15 @@ body {
   flex-basis: content;
   justify-content: center;
 }
+/* menu sign styling */
 .menuSign {
   display: inline-block;
   padding: 0rem 1.5rem;
-
   border: 0;
   text-decoration: none;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.029);
   font-family: "Yantramanav", sans-serif;
-
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   color: rgba(255, 255, 255, 0.8);
@@ -171,10 +179,10 @@ body {
   display: flex;
   flex-basis: content;
   justify-content: center;
-
   transition: ease-in-out;
   transition-duration: 0.5s;
 }
+/* menu sign styling */
 .menuSign:hover {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.945);
@@ -182,20 +190,20 @@ body {
   transition-duration: 1s;
   color: #fff;
 }
+/* link styling */
 .linkStyling {
   text-decoration: none;
 }
+/* menu id styling */
 #Menu {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.029);
   font-family: "Yantramanav", sans-serif;
-
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   color: rgba(255, 255, 255, 0.8);
   left: 45vw;
   padding: 0rem 1.5rem;
-
   border: 0;
   text-decoration: none;
   border-radius: 15px;
@@ -203,6 +211,7 @@ body {
   letter-spacing: 6px;
   cursor: pointer;
 }
+/* menu hover animation */
 #Menu:hover {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.945);

@@ -1,9 +1,9 @@
 import cv from "./portfolio-vids/cv.mov";
-import hyperion from "./portfolio-vids/hyperion-development.mov";
 import movieApp from "./portfolio-vids/movie-app.mov";
 import hangman from "./portfolio-vids/hangman.mov";
 
 const PortfolioSections = [
+  // new website
   {
     id: 0,
     title: "newWebsite",
@@ -13,13 +13,11 @@ const PortfolioSections = [
     video: "",
     colour: "",
     text: "white",
-    // spline: "https://prod.spline.design/SnGWczic6v3sxmsc/scene.splinecode",
     link: "",
   },
-
+  // final project HD
   {
     id: 1,
-
     title: "hyperionFinalProject",
     number: ".002",
     name: "Final HD Project",
@@ -29,10 +27,9 @@ const PortfolioSections = [
     text: "white",
     link: "https://github.com/TomHFE/hangman-app",
   },
-
+  // hyperion projects
   {
     id: 2,
-
     title: "hyperionProjects",
     number: ".003",
     name: "Hyperion Development",
@@ -42,7 +39,7 @@ const PortfolioSections = [
     text: "white",
     link: "https://www.hyperiondev.com/portfolio/104617/",
   },
-
+  // css cv
   {
     id: 3,
 
@@ -55,7 +52,7 @@ const PortfolioSections = [
     text: "white",
     link: "https://github.com/TomHFE/CV-react",
   },
-
+  // movie app
   {
     id: 4,
 
