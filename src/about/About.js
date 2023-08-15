@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 
 const About = () => {
+  // first tag line variants
   const Variants = {
     hidden: {
       opacity: 0,
@@ -16,6 +17,9 @@ const About = () => {
       transition: { type: "easeInOut", duration: 2 },
     },
   };
+
+  // second tag line variants
+
   const aboutLineVariantSecond = {
     hidden: {
       opacity: 0,
@@ -28,6 +32,8 @@ const About = () => {
     },
   };
 
+  // picture variants
+
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,6 +41,8 @@ const About = () => {
       transition: { delay: 1, duration: 2.5 },
     },
   };
+
+  // variants first anchor
 
   const a1 = {
     hidden: { opacity: 0, x: -100 },
@@ -44,6 +52,9 @@ const About = () => {
       transition: { type: "linear", duration: 2 },
     },
   };
+
+  // variants second anchor
+
   const a2 = {
     hidden: { opacity: 0, x: 100 },
     visible: {
@@ -52,6 +63,9 @@ const About = () => {
       transition: { type: "linear", duration: 3 },
     },
   };
+
+  // variants third anchor
+
   const a3 = {
     hidden: { opacity: 0, x: -100 },
     visible: {
@@ -63,6 +77,7 @@ const About = () => {
 
   return (
     <AnimatePresence>
+      {/* body tag */}
       <motion.div
         variants={{
           hidden: { opacity: 0 },
@@ -72,12 +87,15 @@ const About = () => {
         animate="visible"
         exit="exit"
       >
+        {/* menu link */}
         <Link to="/menu">
           <p id="Menu">MENU</p>
         </Link>
+        {/* container for about information */}
         <div className="aboutContainer">
           <div className="aboutGrid">
             <motion.ul className="aboutTagLine">
+              {/* first tag line */}
               <motion.li
                 className="aboutLine"
                 variants={Variants}
@@ -97,6 +115,7 @@ const About = () => {
                 {" "}
                 FREELANCE DEVELOPER <span className="mask"></span>
               </motion.li>
+              {/* second tag line */}
               <motion.li
                 variants={aboutLineVariantSecond}
                 initial="hidden"
@@ -114,7 +133,7 @@ const About = () => {
                 FOR CODE
               </motion.li>
             </motion.ul>
-
+            {/* first comments left of photo */}
             <motion.p
               variants={Variants}
               initial="hidden"
@@ -123,6 +142,8 @@ const About = () => {
             >
               Feel free to add me on LinkedIn
             </motion.p>
+            {/* second comments left of photo */}
+
             <motion.p
               className="aboutParagraph2"
               variants={aboutLineVariantSecond}
@@ -133,6 +154,7 @@ const About = () => {
               or alternatively checkout my Github for better insight into my
               coding journey
             </motion.p>
+            {/* about section photo */}
             <Suspense fallback=<div>"loading..."</div>>
               <motion.img
                 className="aboutPhoto"
@@ -143,7 +165,9 @@ const About = () => {
                 animate="visible"
               />
             </Suspense>
+            {/* socials section  */}
             <div className="aboutSocials">
+              {/* linkedIn tag */}
               <a
                 href="https://www.linkedin.com/in/thomas-logan-england-256b57193/"
                 target="_blank"
@@ -158,6 +182,8 @@ const About = () => {
                   LinkedIn
                 </motion.p>
               </a>
+              {/* gitHub tag */}
+
               <a
                 href="https://github.com/TomHFE"
                 target="_blank"
@@ -172,7 +198,7 @@ const About = () => {
                   GitHub
                 </motion.p>
               </a>
-
+              {/* email tag */}
               <motion.p variants={a3} initial="hidden" animate="visible">
                 tomengland1995@gmail.com
               </motion.p>

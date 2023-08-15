@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { useAnimation, motion, AnimatePresence } from "framer-motion";
+import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 export default function Education() {
+  // check elements in view hook
   const [ref, inView] = useInView();
+  // use animation bolean value
   const controls = useAnimation();
-
+// variants for first section
   const VariantsFirst = {
     visible: {
       opacity: 1,
@@ -15,6 +17,8 @@ export default function Education() {
     hidden: { opacity: 0, x: -40 },
     exit: { opacity: 0, x: -40, transition: { duration: 1.2 } },
   };
+  // variants for second section
+
   const VariantsSecond = {
     visible: {
       opacity: 1,
@@ -24,7 +28,7 @@ export default function Education() {
     hidden: { opacity: 0, x: 40 },
     exit: { opacity: 0, x: 40, transition: { duration: 1.2 } },
   };
-
+// intialise animation on inview
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -34,8 +38,11 @@ export default function Education() {
   }, [controls, inView]);
 
   return (
+    // container
     <div className="educationContianer">
+    {/* title */}
       <h1 className="Ed1">Education</h1>
+{/* university section */}
       <motion.div
         className="Ed2"
         variants={VariantsFirst}
@@ -47,6 +54,7 @@ export default function Education() {
         <h2 ref={ref}>Overall grade: 2:1</h2>
         <p>With a 1st in my dissertation</p>
       </motion.div>
+      {/* a-level section */}
       <motion.div
         className="Ed3"
         variants={VariantsSecond}

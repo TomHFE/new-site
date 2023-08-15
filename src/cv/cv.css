@@ -1,3 +1,4 @@
+/* menu button */
 #cvMenu {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.029);
@@ -16,6 +17,7 @@
   letter-spacing: 6px;
   cursor: pointer;
 }
+/* menu button animation */
 #cvMenu:hover {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.945);
@@ -23,43 +25,46 @@
   transition-duration: 1s;
   color: #fff;
 }
+/* main header styling */
 .mainClass h1 {
   color: ivory;
   font-size: 4rem;
-  /* font-family: "Libre Bodoni", serif; */
 }
+/* subheading styling */
 .mainClass h2 {
   color: aliceblue;
-  /* font-family: "Space Mono", monospace; */
 }
+/* minor subheading styling */
 .mainClass h3 {
   color: aliceblue;
-  /* font-family: "Aboreto", cursive; */
 }
+/* paragraph styling */
 .mainClass p {
   color: rgba(255, 253, 236, 0.956);
-  /* font-family: "Dongle", sans-serif; */
   font-size: 2rem;
 }
+/* anchor tag styling */
 .mainClass a {
   color: rgba(255, 253, 236, 0.956);
   font-family: "Bebas Neue", sans-serif;
   font-size: 2rem;
   text-decoration: none;
 }
+/* anchor hover styling */
 .mainClass a:hover {
   color: rgba(255, 166, 0, 0.644);
 }
+/* list styling */
 .mainClass li {
   color: rgba(255, 253, 236, 0.956);
   font-family: "Dongle", sans-serif;
   font-size: 2rem;
 }
-
+/* line styling */
 .mainClass hr {
   margin: 5rem;
 }
-
+/* header container */
 .headerContainer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -68,13 +73,15 @@
   grid-template-rows: repeat(5, 1fr);
   grid-template-rows: min-content auto;
 }
-
+/* first heading section */
 .H1 {
   display: flex;
   place-content: left;
   grid-column: 1/1;
   grid-row: 1/1;
 }
+/* second heading section */
+
 .H2 {
   display: flex;
   place-content: center;
@@ -85,6 +92,8 @@
   font-size: 1.4rem;
   margin-right: 18vw;
 }
+/* third heading section */
+
 .H3 {
   display: flex;
   flex-direction: column;
@@ -93,6 +102,7 @@
   grid-row: 1/3;
   font-size: 10px;
 }
+/* conceptual piece for future additons */
 #finalWord {
   display: flex;
   justify-content: left;
@@ -111,22 +121,8 @@
   grid-template-rows: min-content auto;
   margin: 4rem;
 }
-.E5 {
-  display: grid;
-
-  grid-column: 1/3;
-  grid-row: 1/1;
-  place-items: center;
-  text-align: left;
-  border-bottom: 0.5rem;
-  border-style: double;
-  color: rgba(255, 166, 0, 0.644);
-
-  padding: 1rem;
-}
+/* experience section title */
 .E1 {
-  /* display: flex;
-  place-items: right; */
   grid-column: 3/4;
   grid-row: 1/5;
   writing-mode: vertical-rl;
@@ -134,6 +130,8 @@
   place-items: center;
   text-align: center;
 }
+/* experience section 2 */
+
 .E2 {
   display: grid;
 
@@ -145,6 +143,7 @@
   border-style: double;
   padding: 1rem;
 }
+/* experience section 3 */
 
 .E3 {
   display: grid;
@@ -158,6 +157,7 @@
   padding: 1rem;
   color: rgba(255, 166, 0, 0.644);
 }
+/* experience section 4 */
 
 .E4 {
   display: grid;
@@ -169,6 +169,22 @@
   border-style: double;
   padding: 1rem;
 }
+/* experience section 5 */
+
+.E5 {
+  display: grid;
+
+  grid-column: 1/3;
+  grid-row: 1/1;
+  place-items: center;
+  text-align: left;
+  border-bottom: 0.5rem;
+  border-style: double;
+  color: rgba(255, 166, 0, 0.644);
+
+  padding: 1rem;
+}
+/* skills container */
 .skillsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -177,10 +193,11 @@
   grid-template-rows: min-content auto;
   margin: 6rem;
 }
-
+/* styling for odd skills sections */
 .skillsContainer p:nth-child(odd) {
   color: rgba(235, 222, 197, 0.644);
 }
+/* skills title */
 .S1 {
   grid-column: 1/1;
   grid-row: 1/9;
@@ -190,6 +207,7 @@
   text-align: center;
   color: rgba(255, 166, 0, 0.644);
 }
+/* skills section styling */
 
 .S2,
 .S3,
@@ -215,30 +233,39 @@
   grid-template-rows: min-content auto;
   margin: 8rem;
 }
+/* education section title */
 .Ed1 {
   grid-column: 4;
   grid-row: 2;
 
   text-align: right;
 }
+/* education section 2 */
+
 .Ed2 {
   grid-column: 1/2;
   grid-row: 1/3;
 
   text-align: left;
 }
+/* education section 3 */
+
 .Ed3 {
   grid-column: 4/5;
   grid-row: 1/3;
   text-align: right;
 }
+/* education section 2 larger than paragraph styling */
 .Ed2 > p {
   color: rgba(255, 166, 0, 0.644);
 }
+/* education section 3 larger than paragraph styling */
+
 .Ed3 > p {
   color: rgba(235, 222, 197, 0.644);
 }
 /* work */
+/* work container */
 .workContainer {
   margin: 8rem;
   display: grid;
@@ -247,23 +274,30 @@
   grid-template-columns: min-content auto;
   grid-template-rows: min-content auto;
 }
-
+/* main work layout  */
 .workPreviousLayout {
   margin: 8rem;
   justify-content: right;
   text-align: right;
 }
+/* styling for elements larger than h2  */
+
 .workPreviousLayout > h2 {
   color: rgba(255, 166, 0, 0.644);
   display: flex;
   text-align: left;
   justify-content: left;
 }
+/* styling for second element  */
+
 .workPreviousLayout p:nth-child(-n + 2) {
   display: flex;
   text-align: left;
   justify-content: left;
 }
+
+/* stling for infor on work section */
+
 .P1 {
   margin: 8rem;
   display: flex;
