@@ -108,12 +108,7 @@ const Portfolio = () => {
   return (
     <AnimatePresence>
       {/* portfolio body */}
-      <div
-        className="centerPortfolio"
-        // onClick={(e) => {
-        //   e.preventDefault();
-        // }}
-      >
+      <div className="centerPortfolio">
         {/* link to github */}
         <p id={`portfolioClick`}>
           <a
