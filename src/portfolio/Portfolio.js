@@ -110,9 +110,9 @@ const Portfolio = () => {
       {/* portfolio body */}
       <div
         className="centerPortfolio"
-        onClick={(e) => {
-          e.preventDefault();
-        }}
+        // onClick={(e) => {
+        //   e.preventDefault();
+        // }}
       >
         {/* link to github */}
         <p id={`portfolioClick`}>
