@@ -46,7 +46,7 @@ const PortfolioSections = [
     title: "cssCv",
     number: ".004",
     name: "CSS CV",
-    info: "Heres an exampe I made of my understanding of CSS and grid more specifically. This online CV was built with React and has the various components of a CV built through nested Grid layouts.",
+    info: "Heres an example I made of my understanding of CSS and grid more specifically. This online CV was built with React and has the various components of a CV built through nested Grid layouts.",
     video: cv,
     colour: "##c9a959",
     text: "white",
